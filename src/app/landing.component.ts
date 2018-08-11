@@ -7,7 +7,6 @@ import {ImageUtility} from "./utilities/ImageUtility";
     template: require('./landing.component.htm')
 })
 export class LandingComponent {
-
     bueller = ImageUtility.bueller;
 
 }

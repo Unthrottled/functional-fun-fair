@@ -11,13 +11,15 @@ import {UtilModule} from "../utilities/util.module";
 import {Flatmap101Component} from "./basic/intermediates/flatmap.101.component";
 import {MultimapComponent} from "./basic/intermediates/multimap.component";
 import {CompleteComponent} from "./basic/intermediates/complete.component";
+import {ReactiveModule} from './reactive/reactive.module';
 
 
 @NgModule({
     imports: [
         StreamModule,
         RouterModule,
-        UtilModule
+        UtilModule,
+        ReactiveModule
     ],
     exports: [],
     declarations: [

@@ -24,8 +24,10 @@ var map_view_component_1 = require("./views/basic/intermediates/map.view.compone
 var filter_view_component_1 = require("./views/basic/intermediates/filter.view.component");
 var flatmap_101_component_1 = require("./views/basic/intermediates/flatmap.101.component");
 var multimap_component_1 = require("./views/basic/intermediates/multimap.component");
+var reactive_view_component_1 = require("./views/reactive/reactive.view.component");
 var appRoutes = [
     { path: 'streams', component: basics_view_component_1.BasicsViewComponent },
+    { path: 'reactive', component: reactive_view_component_1.ReactiveViewComponent },
     { path: 'streams/source/generate', component: generative_source_component_1.GenerativeSourceComponent },
     { path: 'streams/source/collection', component: collection_source_component_1.CollectionSourceComponent },
     { path: 'streams/intermediate/map', component: map_view_component_1.MapViewComponent },

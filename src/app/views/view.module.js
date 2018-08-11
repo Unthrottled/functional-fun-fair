@@ -19,6 +19,7 @@ var util_module_1 = require("../utilities/util.module");
 var flatmap_101_component_1 = require("./basic/intermediates/flatmap.101.component");
 var multimap_component_1 = require("./basic/intermediates/multimap.component");
 var complete_component_1 = require("./basic/intermediates/complete.component");
+var reactive_module_1 = require("./reactive/reactive.module");
 var ViewModule = /** @class */ (function () {
     function ViewModule() {
     }
@@ -27,7 +28,8 @@ var ViewModule = /** @class */ (function () {
             imports: [
                 stream_module_1.StreamModule,
                 router_1.RouterModule,
-                util_module_1.UtilModule
+                util_module_1.UtilModule,
+                reactive_module_1.ReactiveModule
             ],
             exports: [],
             declarations: [

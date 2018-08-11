@@ -9,6 +9,7 @@ const htmlLoader = require('raw-loader');
 const http = require('http');
 const keepAliveAgent = new http.Agent({keepAlive: true});
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
+const apiFallback = require('connect-history-api-fallback');
 
 
 const proxyPeel = proxy('/api', {
@@ -150,7 +151,7 @@ module.exports = {
             host: 'localhost',
             port: 3000,
             server: {baseDir: ['dist']},
-            middleware: [proxyPeel]
+            middleware: [proxyPeel,apiFallback()]
         })
     ]
 };

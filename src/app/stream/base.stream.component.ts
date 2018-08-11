@@ -12,7 +12,6 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class BaseStreamComponent {
 
-
     private currentSubscription: Subscription = new Subscription();
     @Output()
     private outputStream = new EventEmitter<StreamItem>();
