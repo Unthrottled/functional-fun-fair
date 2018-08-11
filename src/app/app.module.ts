@@ -18,11 +18,13 @@ import {FilterViewComponent} from "./views/basic/intermediates/filter.view.compo
 import {Flatmap101Component} from "./views/basic/intermediates/flatmap.101.component";
 import {MultimapComponent} from "./views/basic/intermediates/multimap.component";
 import {ReactiveViewComponent} from './views/reactive/reactive.view.component';
+import {ReactiveWhatViewComponent} from './views/reactive/what/reactive.what.view.component';
 
 
 const appRoutes: Routes = [
     {path: 'streams', component: BasicsViewComponent},
     {path: 'reactive', component: ReactiveViewComponent},
+    {path: 'reactive/what', component: ReactiveWhatViewComponent},
     {path: 'streams/source/generate', component: GenerativeSourceComponent},
     {path: 'streams/source/collection', component: CollectionSourceComponent},
     {path: 'streams/intermediate/map', component: MapViewComponent},

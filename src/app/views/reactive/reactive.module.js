@@ -11,6 +11,8 @@ var router_1 = require("@angular/router");
 var reactive_view_component_1 = require("./reactive.view.component");
 var stream_module_1 = require("../../stream/stream.module");
 var util_module_1 = require("../../utilities/util.module");
+var reactive_what_view_component_1 = require("./what/reactive.what.view.component");
+var angular2_markdown_1 = require("angular2-markdown");
 var ReactiveModule = /** @class */ (function () {
     function ReactiveModule() {
     }
@@ -19,11 +21,13 @@ var ReactiveModule = /** @class */ (function () {
             imports: [
                 stream_module_1.StreamModule,
                 router_1.RouterModule,
-                util_module_1.UtilModule
+                util_module_1.UtilModule,
+                angular2_markdown_1.MarkdownModule,
             ],
             exports: [],
             declarations: [
-                reactive_view_component_1.ReactiveViewComponent
+                reactive_view_component_1.ReactiveViewComponent,
+                reactive_what_view_component_1.ReactiveWhatViewComponent
             ],
             providers: []
         })
