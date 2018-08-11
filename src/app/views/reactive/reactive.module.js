@@ -13,6 +13,7 @@ var stream_module_1 = require("../../stream/stream.module");
 var util_module_1 = require("../../utilities/util.module");
 var reactive_what_view_component_1 = require("./what/reactive.what.view.component");
 var angular2_markdown_1 = require("angular2-markdown");
+var reactive_how_view_component_1 = require("./what/reactive.how.view.component");
 var ReactiveModule = /** @class */ (function () {
     function ReactiveModule() {
     }
@@ -27,7 +28,8 @@ var ReactiveModule = /** @class */ (function () {
             exports: [],
             declarations: [
                 reactive_view_component_1.ReactiveViewComponent,
-                reactive_what_view_component_1.ReactiveWhatViewComponent
+                reactive_what_view_component_1.ReactiveWhatViewComponent,
+                reactive_how_view_component_1.ReactiveHowViewComponent
             ],
             providers: []
         })
