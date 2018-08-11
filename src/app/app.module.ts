@@ -20,6 +20,7 @@ import {MultimapComponent} from "./views/basic/intermediates/multimap.component"
 import {ReactiveViewComponent} from './views/reactive/reactive.view.component';
 import {ReactiveWhatViewComponent} from './views/reactive/what/reactive.what.view.component';
 import {ReactiveHowViewComponent} from './views/reactive/what/reactive.how.view.component';
+import {ReactiveWhyViewComponent} from './views/reactive/what/reactive.why.view.component';
 
 
 const appRoutes: Routes = [
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
     {path: 'reactive', component: ReactiveViewComponent},
     {path: 'reactive/what', component: ReactiveWhatViewComponent},
     {path: 'reactive/how', component: ReactiveHowViewComponent},
+    {path: 'reactive/why', component: ReactiveWhyViewComponent},
     {path: 'streams/source/generate', component: GenerativeSourceComponent},
     {path: 'streams/source/collection', component: CollectionSourceComponent},
     {path: 'streams/intermediate/map', component: MapViewComponent},

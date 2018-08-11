@@ -6,6 +6,7 @@ import {UtilModule} from '../../utilities/util.module';
 import {ReactiveWhatViewComponent} from './what/reactive.what.view.component';
 import {MarkdownModule} from 'angular2-markdown';
 import {ReactiveHowViewComponent} from './what/reactive.how.view.component';
+import {ReactiveWhyViewComponent} from './what/reactive.why.view.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {ReactiveHowViewComponent} from './what/reactive.how.view.component';
     declarations: [
         ReactiveViewComponent,
         ReactiveWhatViewComponent,
-        ReactiveHowViewComponent
+        ReactiveHowViewComponent,
+        ReactiveWhyViewComponent,
     ],
     providers: []
 })

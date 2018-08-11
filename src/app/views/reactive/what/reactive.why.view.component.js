@@ -7,16 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ReactiveHowViewComponent = /** @class */ (function () {
-    function ReactiveHowViewComponent() {
+var ReactiveWhyViewComponent = /** @class */ (function () {
+    function ReactiveWhyViewComponent() {
     }
-    ReactiveHowViewComponent = __decorate([
+    ReactiveWhyViewComponent = __decorate([
         core_1.Component({
-            selector: 'reactive-how',
-            template: require('./reactive.how.view.component.htm')
+            selector: 'reactive-why',
+            template: require('./reactive.why.view.component.htm')
         })
-    ], ReactiveHowViewComponent);
-    return ReactiveHowViewComponent;
+    ], ReactiveWhyViewComponent);
+    return ReactiveWhyViewComponent;
 }());
-exports.ReactiveHowViewComponent = ReactiveHowViewComponent;
-//# sourceMappingURL=reactive.how.view.component.js.map
+exports.ReactiveWhyViewComponent = ReactiveWhyViewComponent;
+//# sourceMappingURL=reactive.why.view.component.js.map
