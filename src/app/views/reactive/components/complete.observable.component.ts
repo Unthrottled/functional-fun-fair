@@ -46,7 +46,7 @@ export class CompleteObservableComponent implements OnInit {
                     });
                 observer.next(triangle());
                 Observable.interval(750, Scheduler.async)
-                    .take(4)
+                    .take(2)
                     .subscribe(_ => observer.next(triangle()),
                         observer.error,
                         observer.complete);
@@ -101,7 +101,7 @@ export class CompleteObservableComponent implements OnInit {
     }
 
     sourceComplete(item: StreamItem) {
-        this.sourceOutputSubject.next(item);
+
     }
 
 

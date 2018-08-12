@@ -16,6 +16,10 @@ var angular2_markdown_1 = require("angular2-markdown");
 var reactive_how_view_component_1 = require("./what/reactive.how.view.component");
 var reactive_why_view_component_1 = require("./what/reactive.why.view.component");
 var demultiplex_view_component_1 = require("./concepts/demultiplex.view.component");
+var hot_sequence_view_component_1 = require("./concepts/hot-sequence-view.component");
+var complete_observable_component_1 = require("./components/complete.observable.component");
+var platform_browser_1 = require("@angular/platform-browser");
+var forms_1 = require("@angular/forms");
 var ReactiveModule = /** @class */ (function () {
     function ReactiveModule() {
     }
@@ -25,6 +29,8 @@ var ReactiveModule = /** @class */ (function () {
                 stream_module_1.StreamModule,
                 router_1.RouterModule,
                 util_module_1.UtilModule,
+                platform_browser_1.BrowserModule,
+                forms_1.FormsModule,
                 angular2_markdown_1.MarkdownModule,
             ],
             exports: [],
@@ -33,7 +39,9 @@ var ReactiveModule = /** @class */ (function () {
                 reactive_what_view_component_1.ReactiveWhatViewComponent,
                 reactive_how_view_component_1.ReactiveHowViewComponent,
                 reactive_why_view_component_1.ReactiveWhyViewComponent,
-                demultiplex_view_component_1.DemultiplexViewComponent
+                demultiplex_view_component_1.DemultiplexViewComponent,
+                hot_sequence_view_component_1.HotSequenceViewComponent,
+                complete_observable_component_1.CompleteObservableComponent,
             ],
             providers: []
         })
