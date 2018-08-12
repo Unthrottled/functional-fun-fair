@@ -21,6 +21,7 @@ import {ReactiveViewComponent} from './views/reactive/reactive.view.component';
 import {ReactiveWhatViewComponent} from './views/reactive/what/reactive.what.view.component';
 import {ReactiveHowViewComponent} from './views/reactive/what/reactive.how.view.component';
 import {ReactiveWhyViewComponent} from './views/reactive/what/reactive.why.view.component';
+import {DemultiplexViewComponent} from './views/reactive/concepts/demultiplex.view.component';
 
 
 const appRoutes: Routes = [
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     {path: 'reactive/what', component: ReactiveWhatViewComponent},
     {path: 'reactive/how', component: ReactiveHowViewComponent},
     {path: 'reactive/why', component: ReactiveWhyViewComponent},
+    {path: 'reactive/concepts/demultiplex', component: DemultiplexViewComponent},
     {path: 'streams/source/generate', component: GenerativeSourceComponent},
     {path: 'streams/source/collection', component: CollectionSourceComponent},
     {path: 'streams/intermediate/map', component: MapViewComponent},

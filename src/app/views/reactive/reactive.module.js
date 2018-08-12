@@ -15,6 +15,7 @@ var reactive_what_view_component_1 = require("./what/reactive.what.view.componen
 var angular2_markdown_1 = require("angular2-markdown");
 var reactive_how_view_component_1 = require("./what/reactive.how.view.component");
 var reactive_why_view_component_1 = require("./what/reactive.why.view.component");
+var demultiplex_view_component_1 = require("./concepts/demultiplex.view.component");
 var ReactiveModule = /** @class */ (function () {
     function ReactiveModule() {
     }
@@ -32,6 +33,7 @@ var ReactiveModule = /** @class */ (function () {
                 reactive_what_view_component_1.ReactiveWhatViewComponent,
                 reactive_how_view_component_1.ReactiveHowViewComponent,
                 reactive_why_view_component_1.ReactiveWhyViewComponent,
+                demultiplex_view_component_1.DemultiplexViewComponent
             ],
             providers: []
         })

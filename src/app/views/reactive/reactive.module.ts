@@ -7,6 +7,7 @@ import {ReactiveWhatViewComponent} from './what/reactive.what.view.component';
 import {MarkdownModule} from 'angular2-markdown';
 import {ReactiveHowViewComponent} from './what/reactive.how.view.component';
 import {ReactiveWhyViewComponent} from './what/reactive.why.view.component';
+import {DemultiplexViewComponent} from './concepts/demultiplex.view.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {ReactiveWhyViewComponent} from './what/reactive.why.view.component';
         ReactiveWhatViewComponent,
         ReactiveHowViewComponent,
         ReactiveWhyViewComponent,
+        DemultiplexViewComponent
     ],
     providers: []
 })
