@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, Input, OnInit} from '@angular/core';
 import './complete.observable.component.htm';
 import {SingleStreamItem} from "../../../stream/SingleStreamItem";
 import {StreamItem} from "../../../stream/StreamItem";
@@ -67,11 +67,19 @@ export class CompleteObservableComponent implements OnInit {
     private itemsToMoveAlong: StreamItem[] = [];
     private listIndex = -1;
 
-    private sourceOutputSubject = new BehaviorSubject(null);
-    sourceOutput = this.sourceOutputSubject.filter(item => !!item);
+
+    private _sourceOutput: Observable<StreamItem>;
+
+    @Input()
+    get sourceOutput(): Observable<StreamItem> {
+        return this._sourceOutput;
+    }
+
+    set sourceOutput(value: Observable<StreamItem>) {
+        this._sourceOutput = value;
+    }
 
     private mapSubject = new BehaviorSubject(null);
-    mapOutputStream = this.mapSubject.filter(item => !!item);
 
     private flatMapSubject = new BehaviorSubject(null);
     flatMapOutputStream = this.flatMapSubject.filter(item => !!item);
