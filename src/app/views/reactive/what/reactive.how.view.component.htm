@@ -6,17 +6,21 @@
                 ---
             </markdown>
             <p class="lead">
-                <markdown>
-                    This can be done by utilizing a **Non-Blocking** programming paradigm.
-                    A **push-based** system does not necessarily need to block work from happening.
-                    When data is processed in time, then it will be directed to where it needs to go.
-                    Where as **pull-based** call says, `Hey, you cannot continue down the rest of this code until this one thing happens.`.
-                    Which essentially _blocks_ the program's flow until it can continue to be processed.
-                </markdown>
+                How is the gap from traditional to reactive systems closed?
             </p>
         </div>
         <div>
             <markdown>
+
+                This can be done by utilizing a <span style="font-weight: bold">Non-Blocking</span> programming paradigm.
+                A <span style="font-weight: bold">push-based</span> system does not necessarily need to block work from happening.
+                When data is processed in time, then it will be directed to where it needs to go.
+                Where as <span style="font-weight: bold">pull-based</span>  call says,
+
+                > Hey, you cannot continue down the rest of this code until this one thing happens.
+
+                Which essentially <span style="font-weight: bold">blocks</span>  the program's flow until it can continue to be processed.
+
 
                 The reactive programming paradigm is often presented in object-oriented languages as an extension of the Observer design pattern.
 
@@ -28,7 +32,7 @@
                 even though the method of accessing values is solely the responsibility of the Iterable.
 
                 Indeed, it is up to the developer to choose when to access the `next()` item in the sequence.
-                In reactive streams, the equivalent of the above pair is **Publisher-Subscriber**.
+                In reactive streams, the equivalent of the former pair is <span style="font-weight: bold">Publisher-Subscriber</span>.
                 It is the `Publisher` that notifies the `Subscriber` of any newly available values as they come.
                 The push aspect of this paradigm is the key to being reactive.
 
@@ -42,7 +46,7 @@
                 Rather than blocking to wait for a method to return, just have the data sent over once it is ready.
                 That way work can be done while that data is getting ready to be processed.
 
-                **Push-Based** programming lends itself to asynchrony.
+                _Push-Based_ programming lends itself to asynchrony.
                 Which is needed in order to enable the efficient parallel use of computing resources,
                 on collaborating network hosts or multiple CPU cores within a single machine.
 
@@ -55,14 +59,15 @@
 
                 The reactor design pattern is an event handling pattern for handling service requests delivered concurrently to a service handler by one or more inputs.
                 The service handler then demultiplexes the incoming requests and dispatches them synchronously to the associated request handlers.
+
                 ![demultiplexes](https://en.wikipedia.org/wiki/Multiplexing#/media/File:Multiplexing_diagram.svg)
 
-                The term Actor is also another term to be familiar with.
+                The term <span style="font-weight: bold">Actor</span> is also another term to be familiar with.
                 An actor is a computational entity that, in response to a message it receives, can concurrently:
 
-                - send a finite number of messages to other actors;
-                - create a finite number of new actors;
-                - designate the behavior to be used for the next message it receives.
+                - Send a finite number of messages to other actors;
+                - Create a finite number of new actors;
+                - Designate the behavior to be used for the next message it receives.
 
                 Having a few a event loop threads that do not block and are always processing work is the key to reaching maximum efficiency.
 
@@ -84,23 +89,21 @@
                 In non-blocking code it becomes important to control the rate of events so that a fast producer does not overwhelm its destination.
 
                 ### Moving from synchronous Imperative to asynchronous Reactive Programming
+                ![Learning curve](https://raw.githubusercontent.com/cyclic-reference/spring-webflux/master/assets/the_learning_curve.png)
 
                 Granted there is a bit of a learning curve to adopting non-blocking, functional, and declarative programming.
 
                 It requires a different mindset compared to imperative programming.
 
-                ![Learning curve](assets/the_learning_curve.png)
-
-                I like to think of imperative programming as rolling a ball to it's destination.
-                Where the actual program is controlling the actions of the ball.
-                Where the ball is actually controlled by the one who wants it to be in specific place.
+                I like to think of imperative programming as kicking a ball to it's destination.
+                Where the balls only moves when you reach it again to be able to kick it again.
 
                 Where as reactive programming is like having to roll a ball down a hill to get where it needs to go.
-                If you want the ball to go where you want it, you have to set up walls and obstacles to guide it.
-                Once the ball reaches that part of the hill, the ball interfaces with the construct and continues in the direction the construct leaves it.
+                If you want the ball to go where you want it, you have to set up walls and obstacles ahead of time to guide it.
+                Essentially letting it _flow_through the constructs that where set up.
 
                 Replace ball with data, and it is almost the same thing.
-                Reactive programming, is about setting up sequences that manipulate data as it flows. When it flows is up in the air at run time.
+                Reactive programming, is about setting up sequences that manipulate data as it flows. When it flows, is up in the air at run time.
                 The best we can do is set up our functions (constructs) that manipulate the data as it flows through the sequences we build.
 
                 Reactive streams are very much like the Java 8 stream API.
