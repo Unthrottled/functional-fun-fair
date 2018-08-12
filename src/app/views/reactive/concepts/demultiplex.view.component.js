@@ -17,12 +17,14 @@ var TriangleStreamItemService_1 = require("../../../stream/TriangleStreamItemSer
 var BehaviorSubject_1 = require("rxjs/BehaviorSubject");
 var RanboShapeOptionsService_1 = require("../../../stream/RanboShapeOptionsService");
 var ImageUtility_1 = require("../../../utilities/ImageUtility");
+var router_1 = require("@angular/router");
 var DemultiplexViewComponent = /** @class */ (function () {
-    function DemultiplexViewComponent(triangleFactory, hip2B, circleService) {
+    function DemultiplexViewComponent(triangleFactory, hip2B, circleService, router) {
         var _this = this;
         this.triangleFactory = triangleFactory;
         this.hip2B = hip2B;
         this.circleService = circleService;
+        this.router = router;
         this.mapOne = {
             apply: function (streamItem) { return new SingleStreamItem_1.SingleStreamItem(streamItem.element.map(function (element) { return _this.hip2B.createShape(function () {
                 return {
@@ -49,6 +51,12 @@ var DemultiplexViewComponent = /** @class */ (function () {
             .map(function (element) { return new SingleStreamItem_1.SingleStreamItem(element); })
             .forEach(function (item) { return _this.itemsToMoveAlong.push(item); });
         this.startStreamOne();
+        this.router.events.subscribe(function (evt) {
+            if (!(evt instanceof router_1.NavigationEnd)) {
+                return;
+            }
+            window.scrollTo(0, 0);
+        });
     };
     DemultiplexViewComponent.prototype.sourceComplete = function (item) {
         this.sourceOutputSubject.next(item);
@@ -70,7 +78,8 @@ var DemultiplexViewComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [TriangleStreamItemService_1.TriangleStreamItemService,
             SquareStreamItemService_1.SquareStreamItemService,
-            CircleStreamItemService_1.CircleStreamItemService])
+            CircleStreamItemService_1.CircleStreamItemService,
+            router_1.Router])
     ], DemultiplexViewComponent);
     return DemultiplexViewComponent;
     var DemultiplexViewComponent_1;

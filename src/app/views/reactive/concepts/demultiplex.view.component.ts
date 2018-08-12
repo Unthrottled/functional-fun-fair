@@ -9,6 +9,7 @@ import {TriangleStreamItemService} from '../../../stream/TriangleStreamItemServi
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {RanboShapeOptionsService} from '../../../stream/RanboShapeOptionsService';
 import {ImageUtility} from '../../../utilities/ImageUtility';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
     selector: 'demultiplex-view',
@@ -41,7 +42,8 @@ export class DemultiplexViewComponent implements OnInit {
 
     constructor(private triangleFactory: TriangleStreamItemService,
                 private hip2B: SquareStreamItemService,
-                private circleService: CircleStreamItemService) {
+                private circleService: CircleStreamItemService,
+                private router: Router) {
     }
 
     ngOnInit(): void {
@@ -51,6 +53,12 @@ export class DemultiplexViewComponent implements OnInit {
             .map(element => new SingleStreamItem(element))
             .forEach(item => this.itemsToMoveAlong.push(item));
         this.startStreamOne();
+        this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return;
+            }
+            window.scrollTo(0, 0)
+        });
     }
 
     sourceComplete(item: StreamItem) {

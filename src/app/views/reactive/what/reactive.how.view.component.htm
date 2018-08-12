@@ -59,8 +59,9 @@
 
                 The reactor design pattern is an event handling pattern for handling service requests delivered concurrently to a service handler by one or more inputs.
                 The service handler then demultiplexes the incoming requests and dispatches them synchronously to the associated request handlers.
-
-                ![demultiplexes](https://en.wikipedia.org/wiki/Multiplexing#/media/File:Multiplexing_diagram.svg)
+            </markdown>
+            <div class="btn btn-outline-info" routerLink="/reactive/concepts/demultiplex">Here is a visual example of what a demultiplexer does</div>
+            <markdown>
 
                 The term <span style="font-weight: bold">Actor</span> is also another term to be familiar with.
                 An actor is a computational entity that, in response to a message it receives, can concurrently:
@@ -130,9 +131,10 @@
                 >Note, however, that some hot reactive streams can cache or replay the history of emissions totally or partially.
                 From a general perspective, a hot sequence can even emit when no subscriber is listening
                 (an exception to the "nothing happens before you subscribe" rule).
-            </markdown>
 
+            </markdown>
+            <div class="btn btn-warning" routerLink="/">Go home bruv</div>
         </div>
     </main>
-    <div class="btn btn-warning" routerLink="/">Go home bruv</div>
+
 </div>
