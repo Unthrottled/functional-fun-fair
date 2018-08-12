@@ -49,7 +49,7 @@
                 It too, will be waiting, have to be put back into context and get some CPU time.
                 There is a point where spawning more threads to work, the less efficient the tasks come come to be processed.
 
-                The OS scheduler, is going to let a thread get *N8 amount of clock time, and then it is going to context switch (which can add up as more thnigs need to be process).
+                The OS scheduler, is going to let a thread get *N* amount of clock time, and then it is going to context switch (which can add up as more thnigs need to be process).
                 Which involves moving things out of the direct memory cache, loading up next context of the thread and then trying to process a threads work.
 
                 The more threads that are in need of being processed, the more the context switching needs to happen.
