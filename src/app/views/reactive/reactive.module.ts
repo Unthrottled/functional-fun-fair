@@ -13,6 +13,7 @@ import {CompleteHotObservableComponent} from './components/complete.hot.observab
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {ColdSequenceViewComponent} from './concepts/cold-sequence-view.component';
+import {CompleteColdObservableComponent} from './components/complete.cold.observable.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {ColdSequenceViewComponent} from './concepts/cold-sequence-view.component
         HotSequenceViewComponent,
         ColdSequenceViewComponent,
         CompleteHotObservableComponent,
+        CompleteColdObservableComponent,
     ],
     providers: []
 })

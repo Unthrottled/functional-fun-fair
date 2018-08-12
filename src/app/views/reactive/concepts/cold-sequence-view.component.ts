@@ -34,7 +34,16 @@ export class ColdSequenceViewComponent implements OnInit {
 
     sourcePicture = ImageUtility.circleSource;
     mapPicture = ImageUtility.circleSquare;
-    private itemsToMoveAlong: StreamItem[] = [];
+    private _itemsToMoveAlong: StreamItem[] = [];
+
+    get itemsToMoveAlong(): StreamItem[] {
+        return this._itemsToMoveAlong;
+    }
+
+    set itemsToMoveAlong(value: StreamItem[]) {
+        this._itemsToMoveAlong = value;
+    }
+
     private sourceOutputSubject = new BehaviorSubject(null);
     sourceOutput = this.sourceOutputSubject.filter(item => !!item);
     private streamSourceInputSubject = new BehaviorSubject<StreamItem>(null);
@@ -52,9 +61,7 @@ export class ColdSequenceViewComponent implements OnInit {
         this.list.element
             .map(el => [el])
             .map(element => new SingleStreamItem(element))
-            .forEach(item => this.itemsToMoveAlong.push(item));
-        this.startStreamOne();
-        Observable.interval(2000).subscribe(() => this.startStreamOne());
+            .forEach(item => this._itemsToMoveAlong.push(item));
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {
                 return;
@@ -78,7 +85,7 @@ export class ColdSequenceViewComponent implements OnInit {
 
     startStreamOne(): void {
         let itemIndex = this.listIndex = ++this.listIndex % ColdSequenceViewComponent.numItems;
-        this.streamSourceInputSubject.next(this.itemsToMoveAlong[itemIndex]);
+        this.streamSourceInputSubject.next(this._itemsToMoveAlong[itemIndex]);
     }
 
 }

@@ -18,7 +18,6 @@ var BehaviorSubject_1 = require("rxjs/BehaviorSubject");
 var RanboShapeOptionsService_1 = require("../../../stream/RanboShapeOptionsService");
 var ImageUtility_1 = require("../../../utilities/ImageUtility");
 var router_1 = require("@angular/router");
-var rxjs_1 = require("rxjs");
 var ColdSequenceViewComponent = /** @class */ (function () {
     function ColdSequenceViewComponent(triangleFactory, hip2B, circleService, router) {
         var _this = this;
@@ -36,7 +35,7 @@ var ColdSequenceViewComponent = /** @class */ (function () {
         };
         this.sourcePicture = ImageUtility_1.ImageUtility.circleSource;
         this.mapPicture = ImageUtility_1.ImageUtility.circleSquare;
-        this.itemsToMoveAlong = [];
+        this._itemsToMoveAlong = [];
         this.sourceOutputSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.sourceOutput = this.sourceOutputSubject.filter(function (item) { return !!item; });
         this.streamSourceInputSubject = new BehaviorSubject_1.BehaviorSubject(null);
@@ -45,15 +44,23 @@ var ColdSequenceViewComponent = /** @class */ (function () {
         this.subscribers = [1];
     }
     ColdSequenceViewComponent_1 = ColdSequenceViewComponent;
+    Object.defineProperty(ColdSequenceViewComponent.prototype, "itemsToMoveAlong", {
+        get: function () {
+            return this._itemsToMoveAlong;
+        },
+        set: function (value) {
+            this._itemsToMoveAlong = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
     ColdSequenceViewComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.list = this.circleService.createStreamItems(ColdSequenceViewComponent_1.numItems, RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption);
         this.list.element
             .map(function (el) { return [el]; })
             .map(function (element) { return new SingleStreamItem_1.SingleStreamItem(element); })
-            .forEach(function (item) { return _this.itemsToMoveAlong.push(item); });
-        this.startStreamOne();
-        rxjs_1.Observable.interval(2000).subscribe(function () { return _this.startStreamOne(); });
+            .forEach(function (item) { return _this._itemsToMoveAlong.push(item); });
         this.router.events.subscribe(function (evt) {
             if (!(evt instanceof router_1.NavigationEnd)) {
                 return;
@@ -72,7 +79,7 @@ var ColdSequenceViewComponent = /** @class */ (function () {
     };
     ColdSequenceViewComponent.prototype.startStreamOne = function () {
         var itemIndex = this.listIndex = ++this.listIndex % ColdSequenceViewComponent_1.numItems;
-        this.streamSourceInputSubject.next(this.itemsToMoveAlong[itemIndex]);
+        this.streamSourceInputSubject.next(this._itemsToMoveAlong[itemIndex]);
     };
     ColdSequenceViewComponent.numItems = 6;
     ColdSequenceViewComponent = ColdSequenceViewComponent_1 = __decorate([

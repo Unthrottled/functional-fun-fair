@@ -1,7 +1,7 @@
 <div>
     <main role="main" class="container">
         <div class="jumbotron heading">
-            <h1>Hot Sequence</h1>
+            <h1>Cold Sequence</h1>
             <div>
                 <p class="lead">
                     A demultiplexer (or demux) is a device that takes a single input line and routes it to one of several output lines.
@@ -16,20 +16,8 @@
            (click)="addSubscriber()">Add Subscriber</a>
         <div>
             <stream-item [streamItem]="list"></stream-item>
-            <div class="stream-container">
-                <div *ngFor="let subscriber of subscribers">
-                    <div>
-                        <div>
-                            <img src="{{sourcePicture}}"/>
-                        </div>
-                        <stream-source
-                                [inputStream]="streamSourceInput"
-                                (outputStream)="sourceComplete($event)"></stream-source>
-                    </div>
-                    <div>
-                        <complete-view [sourceOutput]="sourceOutput"></complete-view>
-                    </div>
-                </div>
+            <div *ngFor="let subscriber of subscribers">
+                    <complete-cold-view [itemsToMoveAlong]="itemsToMoveAlong"></complete-cold-view>
             </div>
         </div>
     </div>
