@@ -30,6 +30,7 @@ var reactive_how_view_component_1 = require("./views/reactive/what/reactive.how.
 var reactive_why_view_component_1 = require("./views/reactive/what/reactive.why.view.component");
 var demultiplex_view_component_1 = require("./views/reactive/concepts/demultiplex.view.component");
 var hot_sequence_view_component_1 = require("./views/reactive/concepts/hot-sequence-view.component");
+var cold_sequence_view_component_1 = require("./views/reactive/concepts/cold-sequence-view.component");
 var appRoutes = [
     { path: 'streams', component: basics_view_component_1.BasicsViewComponent },
     { path: 'reactive', component: reactive_view_component_1.ReactiveViewComponent },
@@ -38,6 +39,7 @@ var appRoutes = [
     { path: 'reactive/why', component: reactive_why_view_component_1.ReactiveWhyViewComponent },
     { path: 'reactive/concepts/demultiplex', component: demultiplex_view_component_1.DemultiplexViewComponent },
     { path: 'reactive/concepts/sequences/hot', component: hot_sequence_view_component_1.HotSequenceViewComponent },
+    { path: 'reactive/concepts/sequences/cold', component: cold_sequence_view_component_1.ColdSequenceViewComponent },
     { path: 'streams/source/generate', component: generative_source_component_1.GenerativeSourceComponent },
     { path: 'streams/source/collection', component: collection_source_component_1.CollectionSourceComponent },
     { path: 'streams/intermediate/map', component: map_view_component_1.MapViewComponent },

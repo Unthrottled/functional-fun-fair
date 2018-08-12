@@ -12,6 +12,7 @@ import {HotSequenceViewComponent} from './concepts/hot-sequence-view.component';
 import {CompleteObservableComponent} from './components/complete.observable.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
+import {ColdSequenceViewComponent} from './concepts/cold-sequence-view.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {FormsModule} from '@angular/forms';
         ReactiveWhyViewComponent,
         DemultiplexViewComponent,
         HotSequenceViewComponent,
+        ColdSequenceViewComponent,
         CompleteObservableComponent,
     ],
     providers: []
