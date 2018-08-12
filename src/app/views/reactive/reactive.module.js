@@ -17,7 +17,7 @@ var reactive_how_view_component_1 = require("./what/reactive.how.view.component"
 var reactive_why_view_component_1 = require("./what/reactive.why.view.component");
 var demultiplex_view_component_1 = require("./concepts/demultiplex.view.component");
 var hot_sequence_view_component_1 = require("./concepts/hot-sequence-view.component");
-var complete_observable_component_1 = require("./components/complete.observable.component");
+var complete_hot_observable_component_1 = require("./components/complete.hot.observable.component");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var cold_sequence_view_component_1 = require("./concepts/cold-sequence-view.component");
@@ -43,7 +43,7 @@ var ReactiveModule = /** @class */ (function () {
                 demultiplex_view_component_1.DemultiplexViewComponent,
                 hot_sequence_view_component_1.HotSequenceViewComponent,
                 cold_sequence_view_component_1.ColdSequenceViewComponent,
-                complete_observable_component_1.CompleteObservableComponent,
+                complete_hot_observable_component_1.CompleteHotObservableComponent,
             ],
             providers: []
         })

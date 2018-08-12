@@ -9,7 +9,7 @@ import {ReactiveHowViewComponent} from './what/reactive.how.view.component';
 import {ReactiveWhyViewComponent} from './what/reactive.why.view.component';
 import {DemultiplexViewComponent} from './concepts/demultiplex.view.component';
 import {HotSequenceViewComponent} from './concepts/hot-sequence-view.component';
-import {CompleteObservableComponent} from './components/complete.observable.component';
+import {CompleteHotObservableComponent} from './components/complete.hot.observable.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {ColdSequenceViewComponent} from './concepts/cold-sequence-view.component';
@@ -33,7 +33,7 @@ import {ColdSequenceViewComponent} from './concepts/cold-sequence-view.component
         DemultiplexViewComponent,
         HotSequenceViewComponent,
         ColdSequenceViewComponent,
-        CompleteObservableComponent,
+        CompleteHotObservableComponent,
     ],
     providers: []
 })

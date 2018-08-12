@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import './complete.observable.component.htm';
+import './complete.hot.observable.component.htm';
 import {SingleStreamItem} from "../../../stream/SingleStreamItem";
 import {StreamItem} from "../../../stream/StreamItem";
 import {Observer} from "rxjs/Observer";
@@ -17,9 +17,9 @@ import {ImageUtility} from "../../../utilities/ImageUtility";
 
 @Component({
     selector: 'complete-view',
-    template: require('./complete.observable.component.htm')
+    template: require('./complete.hot.observable.component.htm')
 })
-export class CompleteObservableComponent implements OnInit {
+export class CompleteHotObservableComponent implements OnInit {
 
     private static numItems = 6;
 
@@ -118,13 +118,13 @@ export class CompleteObservableComponent implements OnInit {
     }
 
     startStreamOne(): void {
-        const itemIndex = this.listIndex = ++this.listIndex % CompleteObservableComponent.numItems;
+        const itemIndex = this.listIndex = ++this.listIndex % CompleteHotObservableComponent.numItems;
         this.streamSourceInputSubject.next(this.itemsToMoveAlong[itemIndex]);
     }
 
 
     ngOnInit(): void {
-        this.list = this.circleService.createStreamItems(CompleteObservableComponent.numItems, RanboShapeOptionsService.createStreamOption);
+        this.list = this.circleService.createStreamItems(CompleteHotObservableComponent.numItems, RanboShapeOptionsService.createStreamOption);
         this.list.element
             .map(el => [el])
             .map(element => new SingleStreamItem(element))
