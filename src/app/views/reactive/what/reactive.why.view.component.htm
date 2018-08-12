@@ -1,6 +1,6 @@
 <div>
     <main role="main" class="container">
-        <div class="jumbotron">
+        <div class="jumbotron heading">
             <markdown>
                 Why do we need to build _Reactive_ systems?
                 ---
@@ -20,10 +20,10 @@
 
                 There are at least two general programming paradigms that can improve a program’s performance:
 
-                1. parallelize: use more threads and more hardware resources.
-                1. seek more efficiency in how current resources are used.
+                1. <span style="font-weight: bold">Parallelize</span>: use more threads and more hardware resources.
+                1. Seek more efficiency in how current resources are used.
 
-                **Multi-Threading**, is this how I get the most bang for the buck?
+                <span style="font-weight: bold">Multi-Threading</span>, is this how I get the most bang for the buck?
 
                 Java developers have the ability to easily write programs using blocking code.
                 This practice is fine until there is a performance bottleneck arises.
@@ -34,7 +34,7 @@
                 If you look closely, as soon as a program involves some latency
                 (notably I/O, such as a database request or a network call), resources are wasted as a thread (or many threads) now are sitting idle, waiting for responses.
 
-                So the parallelization approach is not a silver bullet.
+                So the <span style="font-weight: bold">parallelization</span> approach is not a silver bullet, one-size-fits-all solution.
                 However, it is necessary in order to harness the full power of the hardware.
 
                 Large number of performance bottle-necks, as mentioned above, occur when processes are waiting for input and output I/O.
@@ -49,12 +49,12 @@
                 It too, will be waiting, have to be put back into context and get some CPU time.
                 There is a point where spawning more threads to work, the less efficient the tasks come come to be processed.
 
-                The OS scheduler, is going to let a thread get N amount of clock time, and then it is going to context switch (which can add up as more thnigs need to be process).
+                The OS scheduler, is going to let a thread get *N8 amount of clock time, and then it is going to context switch (which can add up as more thnigs need to be process).
                 Which involves moving things out of the direct memory cache, loading up next context of the thread and then trying to process a threads work.
 
                 The more threads that are in need of being processed, the more the context switching needs to happen.
                 As more and more threads spin up, there is point where **thrashing** occurs.
-                Which means that all work being done for the all of the clock cycles is just setting up thread context, not doing any work (no time), and tearing down for the next thread to be processed.
+                Which means that all work being done for the all of the clock cycles is just setting up thread context, not doing any work before tearing down for the next thread to be processed.
 
                 Which means that the biggest bang for our buck would be having a few active threads that are always doing work.
 
