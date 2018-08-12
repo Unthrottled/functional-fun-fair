@@ -124,6 +124,10 @@
 
                 - **Cold Sequences**: starts anew for each Subscriber, including at the source of data.
                 Every subscriber will see the entire sequence.
+            </markdown>
+            <div class="btn btn-outline-info" routerLink="/reactive/concepts/sequences/cold">Here is a visual example of how a Cold Sequence works</div>
+            <markdown>
+
                 If the source wraps an HTTP call, a new HTTP request is made for each subscription.
                 - **Hot sequences**: do not start from from the beginning for every Subscriber.
                 Rather, late subscribers receive only signals emitted after they subscribed.
@@ -131,8 +135,8 @@
                 >Note, however, that some hot reactive streams can cache or replay the history of emissions totally or partially.
                 From a general perspective, a hot sequence can even emit when no subscriber is listening
                 (an exception to the "nothing happens before you subscribe" rule).
-
             </markdown>
+            <div class="btn btn-outline-info" routerLink="/reactive/concepts/sequences/hot">Here is a visual example of how a Hot Sequence works</div>
             <div class="btn btn-warning" routerLink="/">Go home bruv</div>
         </div>
     </main>
