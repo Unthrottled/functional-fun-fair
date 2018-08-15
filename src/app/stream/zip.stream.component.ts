@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
-import {StreamItem} from "./StreamItem";
-import {Observable} from "rxjs/Observable";
-import {BiFunction, Function} from './Function';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {StreamItem} from './StreamItem';
+import {Observable} from 'rxjs/Observable';
+import {BiFunction} from './Function';
 
 @Component({
     selector: 'zip-stream',
@@ -34,8 +34,9 @@ export class ZipStreamComponent {
 
     set inputStream(value: Observable<StreamItem>) {
         this._inputStream = value;
-        tryToCombine();
+        this.tryToCombine();
     }
+
     private _otherInputStream: Observable<StreamItem>;
 
     @Input()
@@ -59,18 +60,17 @@ export class ZipStreamComponent {
         this._zippedOutputStream = value;
     }
 
-    private tryToCombine(): void {
-        if(this._inputStream && this._otherInputStream){
-            this.zippedOutputStream = this._inputStream.zip(this._otherInputStream, (streamItems: StreamItem[]) => {
-
-            })
-        }
-    }
-
-
-
     complete(streamItemAtEnd: StreamItem) {
         this.outputStream.emit(streamItemAtEnd);
+    }
+
+    private tryToCombine(): void {
+        if (this._inputStream && this._otherInputStream) {
+            this.zippedOutputStream = this._inputStream.zip(this._otherInputStream, (streamItems: StreamItem[]) => {
+                console.log(streamItems);
+                return streamItems[0]
+            })
+        }
     }
 
 }
