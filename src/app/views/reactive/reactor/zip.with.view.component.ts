@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {SingleStreamItem} from '../../../stream/SingleStreamItem';
 import {StreamItem} from '../../../stream/StreamItem';
 import {BiFunction} from '../../../stream/Function';
-import {Element} from '@progress/kendo-drawing';
 import {SquareStreamItemService} from '../../../stream/SquareStreamItemService';
 import {CircleStreamItemService} from '../../../stream/CircleStreamItemService';
 import {TriangleStreamItemService} from '../../../stream/TriangleStreamItemService';
@@ -21,14 +20,15 @@ export class ZipWithViewComponent implements OnInit {
 
     list: StreamItem;
     mapOne: BiFunction<StreamItem, StreamItem, StreamItem> = {
-        apply: (streamItem: StreamItem, otherStreamItem: StreamItem) => new SingleStreamItem(
-            streamItem.element.map((element: Element) => this.hip2B.createShape(() => {
-                    return {
-                        fill: element.options.get('fill'),
-                        stroke: element.options.get('stroke'),
-                    }
-                })
-            ))
+        apply: (streamItem: StreamItem, otherStreamItem: StreamItem) =>
+            new SingleStreamItem(
+                streamItem.element.map(() => this.hip2B.createShape(() => {
+                        return {
+                            fill: otherStreamItem.element[0].options.get('fill'),
+                            stroke: otherStreamItem.element[0].options.get('stroke'),
+                        }
+                    })
+                ))
     };
 
     sourcePicture = ImageUtility.circleSource;
@@ -56,8 +56,8 @@ export class ZipWithViewComponent implements OnInit {
             .map(el => [el])
             .map(element => new SingleStreamItem(element))
             .forEach(item => this.itemsToMoveAlong.push(item));
-        Observable.interval(1000).subscribe(()=>this.startStreamOne());
-        Observable.interval(1750).subscribe(()=>this.startStreamTwo());
+        Observable.interval(1000).subscribe(() => this.startStreamOne());
+        Observable.interval(1750).subscribe(() => this.startStreamTwo());
     }
 
     sourceComplete(item: StreamItem) {

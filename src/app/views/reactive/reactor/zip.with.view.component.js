@@ -25,12 +25,14 @@ var ZipWithViewComponent = /** @class */ (function () {
         this.hip2B = hip2B;
         this.circleService = circleService;
         this.mapOne = {
-            apply: function (streamItem, otherStreamItem) { return new SingleStreamItem_1.SingleStreamItem(streamItem.element.map(function (element) { return _this.hip2B.createShape(function () {
-                return {
-                    fill: element.options.get('fill'),
-                    stroke: element.options.get('stroke'),
-                };
-            }); })); }
+            apply: function (streamItem, otherStreamItem) {
+                return new SingleStreamItem_1.SingleStreamItem(streamItem.element.map(function () { return _this.hip2B.createShape(function () {
+                    return {
+                        fill: otherStreamItem.element[0].options.get('fill'),
+                        stroke: otherStreamItem.element[0].options.get('stroke'),
+                    };
+                }); }));
+            }
         };
         this.sourcePicture = ImageUtility_1.ImageUtility.circleSource;
         this.mapPicture = ImageUtility_1.ImageUtility.circleSquare;
