@@ -24,6 +24,7 @@ import {ReactiveWhyViewComponent} from './views/reactive/what/reactive.why.view.
 import {DemultiplexViewComponent} from './views/reactive/concepts/demultiplex.view.component';
 import {HotSequenceViewComponent} from './views/reactive/concepts/hot-sequence-view.component';
 import {ColdSequenceViewComponent} from './views/reactive/concepts/cold-sequence-view.component';
+import {ZipWithViewComponent} from './views/reactive/reactor/zip.with.view.component';
 
 
 const appRoutes: Routes = [
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
     {path: 'reactive/concepts/demultiplex', component: DemultiplexViewComponent},
     {path: 'reactive/concepts/sequences/hot', component: HotSequenceViewComponent},
     {path: 'reactive/concepts/sequences/cold', component: ColdSequenceViewComponent},
+    {path: 'reactor/intermediate/zipWith', component: ZipWithViewComponent},
     {path: 'streams/source/generate', component: GenerativeSourceComponent},
     {path: 'streams/source/collection', component: CollectionSourceComponent},
     {path: 'streams/intermediate/map', component: MapViewComponent},
