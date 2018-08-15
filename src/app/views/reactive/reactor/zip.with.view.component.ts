@@ -18,7 +18,6 @@ export class ZipWithViewComponent implements OnInit {
 
     private static numItems = 6;
 
-    list: StreamItem;
     mapOne: BiFunction<StreamItem, StreamItem, StreamItem> = {
         apply: (streamItem: StreamItem, otherStreamItem: StreamItem) =>
             new SingleStreamItem(
@@ -32,8 +31,9 @@ export class ZipWithViewComponent implements OnInit {
     };
 
     sourcePicture = ImageUtility.circleSource;
+    triangleSource = ImageUtility.triangleSource;
+    trianglePlusCircleToSquare = ImageUtility.trianglePlusCircleToSquare;
     mapPicture = ImageUtility.circleSquare;
-    private itemsToMoveAlong: StreamItem[] = [];
     private sourceOutputSubject = new BehaviorSubject(null);
     sourceOutput = this.sourceOutputSubject.filter(item => !!item);
     private sourceOutputOtherSubject = new BehaviorSubject(null);
@@ -42,8 +42,6 @@ export class ZipWithViewComponent implements OnInit {
     streamSourceInput = this.streamSourceInputSubject.filter(item => !!item);
     private streamSourceInputOtherSubject = new BehaviorSubject<StreamItem>(null);
     streamSourceInputOther = this.streamSourceInputOtherSubject.filter(item => !!item);
-    private listIndex = -1;
-    private listIndexOther = -1;
 
     constructor(private triangleFactory: TriangleStreamItemService,
                 private hip2B: SquareStreamItemService,
@@ -51,13 +49,8 @@ export class ZipWithViewComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.list = this.circleService.createStreamItems(ZipWithViewComponent.numItems, RanboShapeOptionsService.createStreamOption)
-        this.list.element
-            .map(el => [el])
-            .map(element => new SingleStreamItem(element))
-            .forEach(item => this.itemsToMoveAlong.push(item));
-        Observable.interval(1000).subscribe(() => this.startStreamOne());
-        Observable.interval(1750).subscribe(() => this.startStreamTwo());
+        Observable.interval(1250).subscribe(() => this.startStreamOne());
+        Observable.interval(1850).subscribe(() => this.startStreamTwo());
     }
 
     sourceComplete(item: StreamItem) {
@@ -73,13 +66,11 @@ export class ZipWithViewComponent implements OnInit {
     }
 
     startStreamOne(): void {
-        let itemIndex = this.listIndex = ++this.listIndex % ZipWithViewComponent.numItems;
-        this.streamSourceInputSubject.next(this.itemsToMoveAlong[itemIndex]);
+        this.streamSourceInputSubject.next(this.triangleFactory.createStreamItem(RanboShapeOptionsService.createStreamOption));
     }
 
     startStreamTwo(): void {
-        let itemIndex = this.listIndexOther = ++this.listIndexOther % ZipWithViewComponent.numItems;
-        this.streamSourceInputOtherSubject.next(this.itemsToMoveAlong[itemIndex]);
+        this.streamSourceInputOtherSubject.next(this.circleService.createStreamItem(RanboShapeOptionsService.createStreamOption));
     }
 
 }

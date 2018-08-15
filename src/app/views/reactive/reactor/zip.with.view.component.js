@@ -35,8 +35,9 @@ var ZipWithViewComponent = /** @class */ (function () {
             }
         };
         this.sourcePicture = ImageUtility_1.ImageUtility.circleSource;
+        this.triangleSource = ImageUtility_1.ImageUtility.triangleSource;
+        this.trianglePlusCircleToSquare = ImageUtility_1.ImageUtility.trianglePlusCircleToSquare;
         this.mapPicture = ImageUtility_1.ImageUtility.circleSquare;
-        this.itemsToMoveAlong = [];
         this.sourceOutputSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.sourceOutput = this.sourceOutputSubject.filter(function (item) { return !!item; });
         this.sourceOutputOtherSubject = new BehaviorSubject_1.BehaviorSubject(null);
@@ -45,19 +46,11 @@ var ZipWithViewComponent = /** @class */ (function () {
         this.streamSourceInput = this.streamSourceInputSubject.filter(function (item) { return !!item; });
         this.streamSourceInputOtherSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.streamSourceInputOther = this.streamSourceInputOtherSubject.filter(function (item) { return !!item; });
-        this.listIndex = -1;
-        this.listIndexOther = -1;
     }
-    ZipWithViewComponent_1 = ZipWithViewComponent;
     ZipWithViewComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.list = this.circleService.createStreamItems(ZipWithViewComponent_1.numItems, RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption);
-        this.list.element
-            .map(function (el) { return [el]; })
-            .map(function (element) { return new SingleStreamItem_1.SingleStreamItem(element); })
-            .forEach(function (item) { return _this.itemsToMoveAlong.push(item); });
-        rxjs_1.Observable.interval(1000).subscribe(function () { return _this.startStreamOne(); });
-        rxjs_1.Observable.interval(1750).subscribe(function () { return _this.startStreamTwo(); });
+        rxjs_1.Observable.interval(1250).subscribe(function () { return _this.startStreamOne(); });
+        rxjs_1.Observable.interval(1850).subscribe(function () { return _this.startStreamTwo(); });
     };
     ZipWithViewComponent.prototype.sourceComplete = function (item) {
         this.sourceOutputSubject.next(item);
@@ -68,15 +61,13 @@ var ZipWithViewComponent = /** @class */ (function () {
     ZipWithViewComponent.prototype.mapOneComplete = function (steamItem) {
     };
     ZipWithViewComponent.prototype.startStreamOne = function () {
-        var itemIndex = this.listIndex = ++this.listIndex % ZipWithViewComponent_1.numItems;
-        this.streamSourceInputSubject.next(this.itemsToMoveAlong[itemIndex]);
+        this.streamSourceInputSubject.next(this.triangleFactory.createStreamItem(RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption));
     };
     ZipWithViewComponent.prototype.startStreamTwo = function () {
-        var itemIndex = this.listIndexOther = ++this.listIndexOther % ZipWithViewComponent_1.numItems;
-        this.streamSourceInputOtherSubject.next(this.itemsToMoveAlong[itemIndex]);
+        this.streamSourceInputOtherSubject.next(this.circleService.createStreamItem(RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption));
     };
     ZipWithViewComponent.numItems = 6;
-    ZipWithViewComponent = ZipWithViewComponent_1 = __decorate([
+    ZipWithViewComponent = __decorate([
         core_1.Component({
             selector: 'zip-with-view',
             template: require('./zip.with.view.component.htm')
@@ -86,7 +77,6 @@ var ZipWithViewComponent = /** @class */ (function () {
             CircleStreamItemService_1.CircleStreamItemService])
     ], ZipWithViewComponent);
     return ZipWithViewComponent;
-    var ZipWithViewComponent_1;
 }());
 exports.ZipWithViewComponent = ZipWithViewComponent;
 //# sourceMappingURL=zip.with.view.component.js.map

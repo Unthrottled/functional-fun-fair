@@ -19,11 +19,10 @@
         <a class="btn btn-sm btn-warning"
            routerLink="/streams">back</a>
         <div>
-            <stream-item [streamItem]="list"></stream-item>
             <div class="stream-container">
                 <div>
                     <div>
-                        <img src="{{sourcePicture}}"/>
+                        <img src="{{triangleSource}}"/>
                     </div>
                     <stream-source
                             [inputStream]="streamSourceInput"
@@ -37,7 +36,7 @@
                 </div>
                 <div>
                     <div>
-                        <img src="{{mapPicture}}"/>
+                        <img src="{{trianglePlusCircleToSquare}}"/>
                     </div>
                     <zip-stream
                                 [inputStream]="sourceOutput"
