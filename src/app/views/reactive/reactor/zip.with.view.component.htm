@@ -28,15 +28,22 @@
                     <stream-source
                             [inputStream]="streamSourceInput"
                             (outputStream)="sourceComplete($event)"></stream-source>
+                    <div>
+                        <img src="{{sourcePicture}}"/>
+                    </div>
+                    <stream-source
+                            [inputStream]="streamSourceInputOther"
+                            (outputStream)="sourceCompleteOther($event)"></stream-source>
                 </div>
                 <div>
                     <div>
                         <img src="{{mapPicture}}"/>
                     </div>
-                    <map-stream (outputStream)="mapOneComplete($event)"
+                    <zip-stream
                                 [inputStream]="sourceOutput"
-                                [mappingFunction]="mapOne"
-                    ></map-stream>
+                                [otherInputStream]="sourceOutputOther"
+                                [zippingFunction]="mapOne"
+                    ></zip-stream>
                 </div>
             </div>
         </div>

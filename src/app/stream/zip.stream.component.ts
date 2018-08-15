@@ -66,9 +66,8 @@ export class ZipStreamComponent {
 
     private tryToCombine(): void {
         if (this._inputStream && this._otherInputStream) {
-            this.zippedOutputStream = this._inputStream.zip(this._otherInputStream, (streamItems: StreamItem[]) => {
-                console.log(streamItems);
-                return streamItems[0]
+            this.zippedOutputStream = this._inputStream.zip(this._otherInputStream, (a, b) => {
+                return this.zippingFunction.apply(a,b)
             })
         }
     }

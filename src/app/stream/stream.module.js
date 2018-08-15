@@ -20,6 +20,7 @@ var CircleStreamItemService_1 = require("./CircleStreamItemService");
 var TriangleStreamItemService_1 = require("./TriangleStreamItemService");
 var SquareStreamItemService_1 = require("./SquareStreamItemService");
 var draw_stream_item_component_1 = require("./draw.stream.item.component");
+var zip_stream_component_1 = require("./zip.stream.component");
 var StreamModule = /** @class */ (function () {
     function StreamModule() {
     }
@@ -34,7 +35,8 @@ var StreamModule = /** @class */ (function () {
                 map_stream_component_1.MapStreamComponent,
                 filter_stream_component_1.FilterStreamComponent,
                 flatMap_stream_component_1.FlatMapStreamComponent,
-                stream_item_component_1.StreamItemComponent
+                stream_item_component_1.StreamItemComponent,
+                zip_stream_component_1.ZipStreamComponent,
             ],
             declarations: [
                 source_component_1.SourceComponent,
@@ -44,6 +46,7 @@ var StreamModule = /** @class */ (function () {
                 filter_stream_component_1.FilterStreamComponent,
                 flatMap_stream_component_1.FlatMapStreamComponent,
                 stream_item_component_1.StreamItemComponent,
+                zip_stream_component_1.ZipStreamComponent,
                 draw_stream_item_component_1.DrawStreamItemComponent,
             ],
             providers: [

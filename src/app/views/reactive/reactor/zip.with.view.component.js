@@ -17,6 +17,7 @@ var TriangleStreamItemService_1 = require("../../../stream/TriangleStreamItemSer
 var BehaviorSubject_1 = require("rxjs/BehaviorSubject");
 var RanboShapeOptionsService_1 = require("../../../stream/RanboShapeOptionsService");
 var ImageUtility_1 = require("../../../utilities/ImageUtility");
+var rxjs_1 = require("rxjs");
 var ZipWithViewComponent = /** @class */ (function () {
     function ZipWithViewComponent(triangleFactory, hip2B, circleService) {
         var _this = this;
@@ -24,7 +25,7 @@ var ZipWithViewComponent = /** @class */ (function () {
         this.hip2B = hip2B;
         this.circleService = circleService;
         this.mapOne = {
-            apply: function (streamItem) { return new SingleStreamItem_1.SingleStreamItem(streamItem.element.map(function (element) { return _this.hip2B.createShape(function () {
+            apply: function (streamItem, otherStreamItem) { return new SingleStreamItem_1.SingleStreamItem(streamItem.element.map(function (element) { return _this.hip2B.createShape(function () {
                 return {
                     fill: element.options.get('fill'),
                     stroke: element.options.get('stroke'),
@@ -36,9 +37,14 @@ var ZipWithViewComponent = /** @class */ (function () {
         this.itemsToMoveAlong = [];
         this.sourceOutputSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.sourceOutput = this.sourceOutputSubject.filter(function (item) { return !!item; });
+        this.sourceOutputOtherSubject = new BehaviorSubject_1.BehaviorSubject(null);
+        this.sourceOutputOther = this.sourceOutputOtherSubject.filter(function (item) { return !!item; });
         this.streamSourceInputSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.streamSourceInput = this.streamSourceInputSubject.filter(function (item) { return !!item; });
+        this.streamSourceInputOtherSubject = new BehaviorSubject_1.BehaviorSubject(null);
+        this.streamSourceInputOther = this.streamSourceInputOtherSubject.filter(function (item) { return !!item; });
         this.listIndex = -1;
+        this.listIndexOther = -1;
     }
     ZipWithViewComponent_1 = ZipWithViewComponent;
     ZipWithViewComponent.prototype.ngOnInit = function () {
@@ -48,17 +54,24 @@ var ZipWithViewComponent = /** @class */ (function () {
             .map(function (el) { return [el]; })
             .map(function (element) { return new SingleStreamItem_1.SingleStreamItem(element); })
             .forEach(function (item) { return _this.itemsToMoveAlong.push(item); });
-        this.startStreamOne();
+        rxjs_1.Observable.interval(1000).subscribe(function () { return _this.startStreamOne(); });
+        rxjs_1.Observable.interval(1750).subscribe(function () { return _this.startStreamTwo(); });
     };
     ZipWithViewComponent.prototype.sourceComplete = function (item) {
         this.sourceOutputSubject.next(item);
     };
+    ZipWithViewComponent.prototype.sourceCompleteOther = function (item) {
+        this.sourceOutputOtherSubject.next(item);
+    };
     ZipWithViewComponent.prototype.mapOneComplete = function (steamItem) {
-        this.startStreamOne();
     };
     ZipWithViewComponent.prototype.startStreamOne = function () {
         var itemIndex = this.listIndex = ++this.listIndex % ZipWithViewComponent_1.numItems;
         this.streamSourceInputSubject.next(this.itemsToMoveAlong[itemIndex]);
+    };
+    ZipWithViewComponent.prototype.startStreamTwo = function () {
+        var itemIndex = this.listIndexOther = ++this.listIndexOther % ZipWithViewComponent_1.numItems;
+        this.streamSourceInputOtherSubject.next(this.itemsToMoveAlong[itemIndex]);
     };
     ZipWithViewComponent.numItems = 6;
     ZipWithViewComponent = ZipWithViewComponent_1 = __decorate([
