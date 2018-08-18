@@ -26,6 +26,7 @@ import {HotSequenceViewComponent} from './views/reactive/concepts/hot-sequence-v
 import {ColdSequenceViewComponent} from './views/reactive/concepts/cold-sequence-view.component';
 import {ZipWithViewComponent} from './views/reactive/reactor/zip.with.view.component';
 import {ReactiveLandingViewComponent} from './views/reactive/reactive.landing.view.component';
+import {ReactiveConceptsViewComponent} from './views/reactive/reactive.concepts.view.component';
 
 
 const appRoutes: Routes = [
@@ -35,10 +36,11 @@ const appRoutes: Routes = [
     {path: 'reactive/explanations/what', component: ReactiveWhatViewComponent},
     {path: 'reactive/explanations/how', component: ReactiveHowViewComponent},
     {path: 'reactive/explanations/why', component: ReactiveWhyViewComponent},
+    {path: 'reactive/concepts', component: ReactiveConceptsViewComponent},
     {path: 'reactive/concepts/visualisations/demultiplex', component: DemultiplexViewComponent},
     {path: 'reactive/concepts/visualisations/sequences/hot', component: HotSequenceViewComponent},
     {path: 'reactive/concepts/visualisations/sequences/cold', component: ColdSequenceViewComponent},
-    {path: 'reactive/reactor/visualisations/intermediate/zipWith', component: ZipWithViewComponent},
+    {path: 'reactive/concepts/reactor/visualisations/intermediate/zipWith', component: ZipWithViewComponent},
     {path: 'streams/source/generate', component: GenerativeSourceComponent},
     {path: 'streams/source/collection', component: CollectionSourceComponent},
     {path: 'streams/intermediate/map', component: MapViewComponent},

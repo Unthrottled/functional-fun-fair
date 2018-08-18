@@ -16,6 +16,7 @@ import {ColdSequenceViewComponent} from './concepts/cold-sequence-view.component
 import {CompleteColdObservableComponent} from './components/complete.cold.observable.component';
 import {ZipWithViewComponent} from './reactor/zip.with.view.component';
 import {ReactiveLandingViewComponent} from './reactive.landing.view.component';
+import {ReactiveConceptsViewComponent} from './reactive.concepts.view.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {ReactiveLandingViewComponent} from './reactive.landing.view.component';
         DemultiplexViewComponent,
         HotSequenceViewComponent,
         ReactiveLandingViewComponent,
+        ReactiveConceptsViewComponent,
         ColdSequenceViewComponent,
         ZipWithViewComponent,
         CompleteHotObservableComponent,

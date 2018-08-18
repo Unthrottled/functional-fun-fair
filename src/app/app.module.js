@@ -33,6 +33,7 @@ var hot_sequence_view_component_1 = require("./views/reactive/concepts/hot-seque
 var cold_sequence_view_component_1 = require("./views/reactive/concepts/cold-sequence-view.component");
 var zip_with_view_component_1 = require("./views/reactive/reactor/zip.with.view.component");
 var reactive_landing_view_component_1 = require("./views/reactive/reactive.landing.view.component");
+var reactive_concepts_view_component_1 = require("./views/reactive/reactive.concepts.view.component");
 var appRoutes = [
     { path: 'streams', component: basics_view_component_1.BasicsViewComponent },
     { path: 'reactive', component: reactive_landing_view_component_1.ReactiveLandingViewComponent },
@@ -40,10 +41,11 @@ var appRoutes = [
     { path: 'reactive/explanations/what', component: reactive_what_view_component_1.ReactiveWhatViewComponent },
     { path: 'reactive/explanations/how', component: reactive_how_view_component_1.ReactiveHowViewComponent },
     { path: 'reactive/explanations/why', component: reactive_why_view_component_1.ReactiveWhyViewComponent },
+    { path: 'reactive/concepts', component: reactive_concepts_view_component_1.ReactiveConceptsViewComponent },
     { path: 'reactive/concepts/visualisations/demultiplex', component: demultiplex_view_component_1.DemultiplexViewComponent },
     { path: 'reactive/concepts/visualisations/sequences/hot', component: hot_sequence_view_component_1.HotSequenceViewComponent },
     { path: 'reactive/concepts/visualisations/sequences/cold', component: cold_sequence_view_component_1.ColdSequenceViewComponent },
-    { path: 'reactive/reactor/visualisations/intermediate/zipWith', component: zip_with_view_component_1.ZipWithViewComponent },
+    { path: 'reactive/concepts/reactor/visualisations/intermediate/zipWith', component: zip_with_view_component_1.ZipWithViewComponent },
     { path: 'streams/source/generate', component: generative_source_component_1.GenerativeSourceComponent },
     { path: 'streams/source/collection', component: collection_source_component_1.CollectionSourceComponent },
     { path: 'streams/intermediate/map', component: map_view_component_1.MapViewComponent },
