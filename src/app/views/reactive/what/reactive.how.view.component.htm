@@ -60,7 +60,7 @@
                 The reactor design pattern is an event handling pattern for handling service requests delivered concurrently to a service handler by one or more inputs.
                 The service handler then demultiplexes the incoming requests and dispatches them synchronously to the associated request handlers.
             </markdown>
-            <div class="btn btn-outline-info" routerLink="/reactive/concepts/demultiplex">Here is a visual example of what a demultiplexer does</div>
+            <div class="btn btn-outline-info" routerLink="/reactive/concepts/visualisations/demultiplex">Here is a visual example of what a demultiplexer does</div>
             <markdown>
 
                 The term <span style="font-weight: bold">Actor</span> is also another term to be familiar with.
@@ -125,7 +125,7 @@
                 - **Cold Sequences**: starts anew for each Subscriber, including at the source of data.
                 Every subscriber will see the entire sequence.
             </markdown>
-            <div class="btn btn-outline-info" routerLink="/reactive/concepts/sequences/cold">Here is a visual example of how a Cold Sequence works</div>
+            <div class="btn btn-outline-info" routerLink="/reactive/concepts/visualisations/sequences/cold">Here is a visual example of how a Cold Sequence works</div>
             <markdown>
 
                 If the source wraps an HTTP call, a new HTTP request is made for each subscription.
@@ -136,7 +136,7 @@
                 From a general perspective, a hot sequence can even emit when no subscriber is listening
                 (an exception to the "nothing happens before you subscribe" rule).
             </markdown>
-            <div class="btn btn-outline-info" routerLink="/reactive/concepts/sequences/hot">Here is a visual example of how a Hot Sequence works</div>
+            <div class="btn btn-outline-info" routerLink="/reactive/concepts/visualisations/sequences/hot">Here is a visual example of how a Hot Sequence works</div>
             <div class="btn btn-warning" routerLink="/reactive">Go home bruv</div>
         </div>
     </main>
