@@ -15,6 +15,7 @@ import {FormsModule} from '@angular/forms';
 import {ColdSequenceViewComponent} from './concepts/cold-sequence-view.component';
 import {CompleteColdObservableComponent} from './components/complete.cold.observable.component';
 import {ZipWithViewComponent} from './reactor/zip.with.view.component';
+import {ReactiveLandingViewComponent} from './reactive.landing.view.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {ZipWithViewComponent} from './reactor/zip.with.view.component';
         ReactiveWhyViewComponent,
         DemultiplexViewComponent,
         HotSequenceViewComponent,
+        ReactiveLandingViewComponent,
         ColdSequenceViewComponent,
         ZipWithViewComponent,
         CompleteHotObservableComponent,

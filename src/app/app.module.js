@@ -32,12 +32,14 @@ var demultiplex_view_component_1 = require("./views/reactive/concepts/demultiple
 var hot_sequence_view_component_1 = require("./views/reactive/concepts/hot-sequence-view.component");
 var cold_sequence_view_component_1 = require("./views/reactive/concepts/cold-sequence-view.component");
 var zip_with_view_component_1 = require("./views/reactive/reactor/zip.with.view.component");
+var reactive_landing_view_component_1 = require("./views/reactive/reactive.landing.view.component");
 var appRoutes = [
     { path: 'streams', component: basics_view_component_1.BasicsViewComponent },
-    { path: 'reactive', component: reactive_view_component_1.ReactiveViewComponent },
-    { path: 'reactive/what', component: reactive_what_view_component_1.ReactiveWhatViewComponent },
-    { path: 'reactive/how', component: reactive_how_view_component_1.ReactiveHowViewComponent },
-    { path: 'reactive/why', component: reactive_why_view_component_1.ReactiveWhyViewComponent },
+    { path: 'reactive', component: reactive_landing_view_component_1.ReactiveLandingViewComponent },
+    { path: 'reactive/explanations', component: reactive_view_component_1.ReactiveViewComponent },
+    { path: 'reactive/explanations/what', component: reactive_what_view_component_1.ReactiveWhatViewComponent },
+    { path: 'reactive/explanations/how', component: reactive_how_view_component_1.ReactiveHowViewComponent },
+    { path: 'reactive/explanations/why', component: reactive_why_view_component_1.ReactiveWhyViewComponent },
     { path: 'reactive/concepts/demultiplex', component: demultiplex_view_component_1.DemultiplexViewComponent },
     { path: 'reactive/concepts/sequences/hot', component: hot_sequence_view_component_1.HotSequenceViewComponent },
     { path: 'reactive/concepts/sequences/cold', component: cold_sequence_view_component_1.ColdSequenceViewComponent },
