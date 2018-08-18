@@ -1,0 +1,114 @@
+.page-content {
+  padding: $spacing-unit 0;
+}
+
+.page-heading {
+  font-size: 20px;
+}
+
+.post-list {
+  margin-left: 0;
+  list-style: none;
+
+  > li {
+    margin-bottom: $spacing-unit/2;
+  }
+}
+
+
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin-bottom: $spacing-unit / 2;
+}
+
+
+.post-meta {
+  font-size: $small-font-size;
+  color: $meta-color;
+}
+
+.post-row {
+  padding-bottom: 5px;
+}
+
+.post-container {
+  background: $post-container;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 transparentize($dropShadow, 0.7);
+  @include hexRain;
+}
+
+.post-excerpt {
+  color: $post-excerpt;
+  font-weight: bold;
+  a {
+    color: $header-link-color;
+  }
+}
+
+.post-link {
+  color: $post-link-color;
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+/**
+ * Posts
+ */
+.post-header {
+  margin-bottom: $spacing-unit;
+  text-shadow: -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;;
+}
+
+.post-title {
+  font-size: 42px;
+  letter-spacing: -1px;
+  line-height: 1;
+
+  @include media-query($on-laptop) {
+    font-size: 36px;
+  }
+}
+
+.post-content {
+  margin-bottom: $spacing-unit;
+
+  h2 {
+    font-size: 32px;
+
+    @include media-query($on-laptop) {
+      font-size: 28px;
+    }
+  }
+
+  h3 {
+    font-size: 26px;
+
+    @include media-query($on-laptop) {
+      font-size: 22px;
+    }
+  }
+
+  h4 {
+    font-size: 20px;
+
+    @include media-query($on-laptop) {
+      font-size: 18px;
+    }
+  }
+}
