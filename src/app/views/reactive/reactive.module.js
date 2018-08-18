@@ -26,6 +26,7 @@ var zip_with_view_component_1 = require("./reactor/zip.with.view.component");
 var reactive_landing_view_component_1 = require("./reactive.landing.view.component");
 var reactive_concepts_view_component_1 = require("./reactive.concepts.view.component");
 var reactive_visualisations_view_component_1 = require("./reactive.visualisations.view.component");
+var reactive_reactor_view_component_1 = require("./reactive.reactor.view.component");
 var ReactiveModule = /** @class */ (function () {
     function ReactiveModule() {
     }
@@ -45,6 +46,7 @@ var ReactiveModule = /** @class */ (function () {
                 reactive_what_view_component_1.ReactiveWhatViewComponent,
                 reactive_how_view_component_1.ReactiveHowViewComponent,
                 reactive_why_view_component_1.ReactiveWhyViewComponent,
+                reactive_reactor_view_component_1.ReactiveReactorViewComponent,
                 demultiplex_view_component_1.DemultiplexViewComponent,
                 hot_sequence_view_component_1.HotSequenceViewComponent,
                 reactive_landing_view_component_1.ReactiveLandingViewComponent,
