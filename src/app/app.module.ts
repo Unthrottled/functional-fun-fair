@@ -27,6 +27,7 @@ import {ColdSequenceViewComponent} from './views/reactive/concepts/cold-sequence
 import {ZipWithViewComponent} from './views/reactive/reactor/zip.with.view.component';
 import {ReactiveLandingViewComponent} from './views/reactive/reactive.landing.view.component';
 import {ReactiveConceptsViewComponent} from './views/reactive/reactive.concepts.view.component';
+import {ReactiveVisualisationsViewComponent} from './views/reactive/reactive.visualisations.view.component';
 
 
 const appRoutes: Routes = [
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     {path: 'reactive/explanations/how', component: ReactiveHowViewComponent},
     {path: 'reactive/explanations/why', component: ReactiveWhyViewComponent},
     {path: 'reactive/concepts', component: ReactiveConceptsViewComponent},
+    {path: 'reactive/concepts/visualisations', component: ReactiveVisualisationsViewComponent},
     {path: 'reactive/concepts/visualisations/demultiplex', component: DemultiplexViewComponent},
     {path: 'reactive/concepts/visualisations/sequences/hot', component: HotSequenceViewComponent},
     {path: 'reactive/concepts/visualisations/sequences/cold', component: ColdSequenceViewComponent},
