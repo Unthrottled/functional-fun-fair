@@ -16,4 +16,6 @@ export class ImageUtility {
     public static java8 = require('../images/java8_logo.png');
     public static reactiveManifetso = require('../images/reactive-manifesto.png');
     public static easyStreet = require('../images/easyStreet.png');
+    public static reactor = require('../images/reactor.png');
+    public static fundie = require('../images/function.png');
 }

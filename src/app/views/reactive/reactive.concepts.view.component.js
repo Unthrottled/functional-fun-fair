@@ -7,8 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var ImageUtility_1 = require("../../utilities/ImageUtility");
 var ReactiveConceptsViewComponent = /** @class */ (function () {
     function ReactiveConceptsViewComponent() {
+        this.reactor = ImageUtility_1.ImageUtility.reactor;
+        this.fundie = ImageUtility_1.ImageUtility.fundie;
     }
     ReactiveConceptsViewComponent = __decorate([
         core_1.Component({

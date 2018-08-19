@@ -17,6 +17,8 @@ var ImageUtility = /** @class */ (function () {
     ImageUtility.java8 = require('../images/java8_logo.png');
     ImageUtility.reactiveManifetso = require('../images/reactive-manifesto.png');
     ImageUtility.easyStreet = require('../images/easyStreet.png');
+    ImageUtility.reactor = require('../images/reactor.png');
+    ImageUtility.fundie = require('../images/function.png');
     return ImageUtility;
 }());
 exports.ImageUtility = ImageUtility;
