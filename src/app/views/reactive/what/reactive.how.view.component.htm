@@ -74,20 +74,28 @@
 
                 Which should explain _why_ spring states that they created the WebFlux library.
 
-                >Part of the answer is the need for a non-blocking web stack to handle concurrency with a small number of threads and scale with less hardware resources.
-                Servlet 3.1 did provide an API for non-blocking I/O.
-                However, using it leads away from the rest of the Servlet API where contracts are synchronous (Filter, Servlet) or blocking (getParameter, getPart).
-                This was the motivation for a new common API to serve as a foundation across any non-blocking runtime.
-                That is important because of servers such as Netty that are well established in the async, non-blocking space.
+                <div class="blockquote">
+                    Part of the answer is the need for a non-blocking web stack to handle concurrency with a small number of threads and scale with less hardware resources.
+                    Servlet 3.1 did provide an API for non-blocking I/O.
+                    However, using it leads away from the rest of the Servlet API where contracts are synchronous (Filter, Servlet) or blocking (getParameter, getPart).
+                    This was the motivation for a new common API to serve as a foundation across any non-blocking runtime.
+                    That is important because of servers such as Netty that are well established in the async, non-blocking space.
+                </div>
 
-                >The other part of the answer is functional programming.
-                Much like the addition of annotations in Java 5 created opportunities — e.g. annotated REST controllers or unit tests, the addition of lambda expressions in Java 8 created opportunities for functional APIs in Java.
-                This is really helpful for non-blocking applications and continuation style APIs — as popularized by CompletableFuture and ReactiveX, that allow declarative composition of asynchronous logic.
-                At the programming model level Java 8 enabled Spring WebFlux to offer functional web endpoints alongside with annotated controllers.
+                <div class="blockquote">
+                    The other part of the answer is functional programming.
+                    Much like the addition of annotations in Java 5 created opportunities — e.g. annotated REST controllers or unit tests, the addition of lambda expressions in Java 8 created opportunities for functional APIs in Java.
+                    This is really helpful for non-blocking applications and continuation style APIs — as popularized by CompletableFuture and ReactiveX, that allow declarative composition of asynchronous logic.
+                    At the programming model level Java 8 enabled Spring WebFlux to offer functional web endpoints alongside with annotated controllers.
+                </div>
 
-                >There is also another important mechanism that we on the Spring team associate with "reactive" and that is non-blocking back pressure.
-                In synchronous, imperative code, blocking calls serve as a natural form of back pressure that forces the caller to wait.
-                In non-blocking code it becomes important to control the rate of events so that a fast producer does not overwhelm its destination.
+                <div class="blockquote">
+                    There is also another important mechanism that we on the Spring team associate with "reactive" and that is non-blocking back pressure.
+                    In synchronous, imperative code, blocking calls serve as a natural form of back pressure that forces the caller to wait.
+                    In non-blocking code it becomes important to control the rate of events so that a fast producer does not overwhelm its destination.
+                </div>
+
+                ---
 
                 ### Moving from synchronous Imperative to asynchronous Reactive Programming
                 ![Learning curve](https://raw.githubusercontent.com/cyclic-reference/spring-webflux/master/assets/the_learning_curve.png)
@@ -122,14 +130,14 @@
                 one can distinguish two broad categories of reactive sequences: **hot** and **cold**.
                 This distinction mainly has to do with how the reactive stream reacts to subscribers:
 
-                - **Cold Sequences**: starts anew for each Subscriber, including at the source of data.
+                - <span style="font-weight: bold">Cold sequences</span>: starts anew for each Subscriber, including at the source of data.
                 Every subscriber will see the entire sequence.
             </markdown>
             <div class="btn btn-outline-info" routerLink="/reactive/concepts/visualisations/sequences/cold">Here is a visual example of how a Cold Sequence works</div>
             <markdown>
 
                 If the source wraps an HTTP call, a new HTTP request is made for each subscription.
-                - **Hot sequences**: do not start from from the beginning for every Subscriber.
+                - <span style="font-weight: bold">Hot sequences</span>: do not start from from the beginning for every Subscriber.
                 Rather, late subscribers receive only signals emitted after they subscribed.
                 If a publisher was already producing, then the subscriber would only see the items currently being produced after subscription.
                 >Note, however, that some hot reactive streams can cache or replay the history of emissions totally or partially.
