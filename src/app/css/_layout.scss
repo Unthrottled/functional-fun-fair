@@ -41,10 +41,10 @@ ul, ol, dl, figure,
   padding-bottom: 1em;
 }
 
-.post-container:hover {
-  padding-bottom: 1em;
-  cursor: pointer;
-  box-shadow: 0 0 2em 0 transparentize($dropShadow, 0.1);
+.clickable:hover {
+    padding-bottom: 1em;
+    cursor: pointer;
+    box-shadow: 0 0 2em 0 transparentize($dropShadow, 0.1);
 }
 
 .post-container {
