@@ -13,4 +13,6 @@ export class ImageUtility {
     public static triangeSquare = require('../images/triangle_square.png');
     public static circleToMany = require('../images/cirle_many_shapes.png');
     public static bueller = require('../images/ferris_wheel.gif');
+    public static java8 = require('../images/java8_logo.png');
+    public static reactiveManifetso = require('../images/reactive-manifesto.png"m');
 }

@@ -14,6 +14,8 @@ var ImageUtility = /** @class */ (function () {
     ImageUtility.triangeSquare = require('../images/triangle_square.png');
     ImageUtility.circleToMany = require('../images/cirle_many_shapes.png');
     ImageUtility.bueller = require('../images/ferris_wheel.gif');
+    ImageUtility.java8 = require('../images/java8_logo.png');
+    ImageUtility.reactiveManifetso = require('../images/reactive-manifesto.png"m');
     return ImageUtility;
 }());
 exports.ImageUtility = ImageUtility;
