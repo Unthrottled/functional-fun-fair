@@ -51,7 +51,7 @@ var DrawStreamItemComponent = /** @class */ (function () {
     DrawStreamItemComponent = __decorate([
         core_1.Component({
             selector: 'draw-stream-item',
-            template: "\n        <div></div>\n    "
+            template: "\n        <div class=\"draw-stream-item\"></div>\n    "
         }),
         __metadata("design:paramtypes", [core_1.ElementRef])
     ], DrawStreamItemComponent);

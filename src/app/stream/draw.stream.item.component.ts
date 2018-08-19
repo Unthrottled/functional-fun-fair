@@ -4,7 +4,7 @@ import {Surface, Element} from '@progress/kendo-drawing';
 @Component({
     selector: 'draw-stream-item',
     template: `
-        <div></div>
+        <div class="draw-stream-item"></div>
     `
 })
 export class DrawStreamItemComponent implements AfterViewInit, OnDestroy {
