@@ -12,6 +12,8 @@ var ImageUtility_1 = require("./utilities/ImageUtility");
 var LandingComponent = /** @class */ (function () {
     function LandingComponent() {
         this.bueller = ImageUtility_1.ImageUtility.bueller;
+        this.java8 = ImageUtility_1.ImageUtility.java8;
+        this.manifesto = ImageUtility_1.ImageUtility.reactiveManifetso;
     }
     LandingComponent = __decorate([
         core_1.Component({

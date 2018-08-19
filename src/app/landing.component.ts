@@ -8,5 +8,7 @@ import {ImageUtility} from "./utilities/ImageUtility";
 })
 export class LandingComponent {
     bueller = ImageUtility.bueller;
+    java8 = ImageUtility.java8;
+    manifesto = ImageUtility.reactiveManifetso;
 
 }
