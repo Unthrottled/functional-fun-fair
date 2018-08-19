@@ -15,4 +15,5 @@ export class ImageUtility {
     public static bueller = require('../images/ferris_wheel.gif');
     public static java8 = require('../images/java8_logo.png');
     public static reactiveManifetso = require('../images/reactive-manifesto.png');
+    public static easyStreet = require('../images/easyStreet.png');
 }

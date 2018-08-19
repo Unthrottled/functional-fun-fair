@@ -16,6 +16,7 @@ var ImageUtility = /** @class */ (function () {
     ImageUtility.bueller = require('../images/ferris_wheel.gif');
     ImageUtility.java8 = require('../images/java8_logo.png');
     ImageUtility.reactiveManifetso = require('../images/reactive-manifesto.png');
+    ImageUtility.easyStreet = require('../images/easyStreet.png');
     return ImageUtility;
 }());
 exports.ImageUtility = ImageUtility;
