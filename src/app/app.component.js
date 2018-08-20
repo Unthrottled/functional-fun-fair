@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 require("./app.component.htm");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
+        this.versionNumber = "v.1.0.0";
     }
     AppComponent = __decorate([
         core_1.Component({
