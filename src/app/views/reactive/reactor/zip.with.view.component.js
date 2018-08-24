@@ -46,11 +46,15 @@ var ZipWithViewComponent = /** @class */ (function () {
         this.streamSourceInput = this.streamSourceInputSubject.filter(function (item) { return !!item; });
         this.streamSourceInputOtherSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.streamSourceInputOther = this.streamSourceInputOtherSubject.filter(function (item) { return !!item; });
+        this.continueOne = true;
     }
     ZipWithViewComponent.prototype.ngOnInit = function () {
         var _this = this;
-        rxjs_1.Observable.interval(1250).subscribe(function () { return _this.startStreamOne(); });
+        rxjs_1.Observable.interval(1000).filter(function (_) { return _this.continueOne; }).subscribe(function () { return _this.startStreamOne(); });
         rxjs_1.Observable.interval(1850).subscribe(function () { return _this.startStreamTwo(); });
+    };
+    ZipWithViewComponent.prototype.toggleStreamOne = function () {
+        this.continueOne = !this.continueOne;
     };
     ZipWithViewComponent.prototype.sourceComplete = function (item) {
         this.sourceOutputSubject.next(item);

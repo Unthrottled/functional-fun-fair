@@ -43,14 +43,18 @@ export class ZipWithViewComponent implements OnInit {
     private streamSourceInputOtherSubject = new BehaviorSubject<StreamItem>(null);
     streamSourceInputOther = this.streamSourceInputOtherSubject.filter(item => !!item);
 
+    private continueOne: boolean = true;
     constructor(private triangleFactory: TriangleStreamItemService,
                 private hip2B: SquareStreamItemService,
                 private circleService: CircleStreamItemService) {
     }
 
     ngOnInit(): void {
-        Observable.interval(1250).subscribe(() => this.startStreamOne());
+        Observable.interval(1000).filter(_ => this.continueOne).subscribe(() => this.startStreamOne());
         Observable.interval(1850).subscribe(() => this.startStreamTwo());
+    }
+    toggleStreamOne() {
+        this.continueOne = !this.continueOne;
     }
 
     sourceComplete(item: StreamItem) {
