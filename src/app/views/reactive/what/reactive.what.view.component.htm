@@ -57,16 +57,16 @@
 
                 This consistent behaviour in turn simplifies error handling, builds end-user confidence, and encourages further interaction.
 
-                Resilient
+                Resilience
                 ---
 
                 Goes hand in hand with *Responsiveness*, in that system always replies, even in the face of failure.
-                Any system that is not resilient will be unresponsive after a failure including systems that are highly-available or mission-critical.
-                Resilience is achieved by replication, containment, isolation and delegation.
+                Any system that is not resilient will be unresponsive after a failure. This means that systems are highly-available or mission-critical are vulnerable to this as well.
 
+                Resilience is achieved by replication, containment, isolation and delegation.
                 Failures are contained within each component, isolating components from each other and thereby ensuring that parts of the system can fail and recover without compromising the system as a whole.
                 Recovery of each component is delegated to another (external) component and high-availability is ensured by replication where necessary.
-                The client of a component is not burdened with handling its failures.
+                The client of a component should not be burdened with handling its failures.
 
                 Elastic
                 ---
