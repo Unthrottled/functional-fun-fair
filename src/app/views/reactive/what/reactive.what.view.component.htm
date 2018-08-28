@@ -93,14 +93,6 @@
                 Transparent location messaging, as a means of communication, enables the management of failure to work across a cluster or within a single host with the same constructs and semantics .
                 Non-blocking communication allows recipients to only consume resources while active, leading to less system overhead.
 
-                -----
-
-                Handling streams of data—especially “live” data whose volume is not predetermined—requires special care in an asynchronous system.
-                The most prominent issue is that resource consumption needs to be controlled such that, a fast data source does not overwhelm the stream destination.
-
-                The main goal of Reactive Streams is to govern the exchange of stream data across an asynchronous boundary—think passing elements on to another thread or thread-pool.
-                While ensuring that the receiving side is not forced to buffer arbitrary amounts of data.
-
             </markdown>
 
         </div>

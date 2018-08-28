@@ -21,13 +21,12 @@
 
                 Which essentially <span style="font-weight: bold">blocks</span>  the program's flow until it can continue to be processed.
 
-
                 The reactive programming paradigm is often presented in object-oriented languages as an extension of the Observer design pattern.
 
                 One can also compare the main reactive streams pattern with the familiar Iterator design pattern.
                 There is a duality to the Iterable-Iterator pair and Reactive Streams.
 
-                One major difference is that, an Iterator is **pull-based**, reactive streams are **push-based**.
+                One major difference is that, an Iterator is **pull-based**, while reactive streams are **push-based**.
                 Using an iterator is an imperative programming pattern,
                 even though the method of accessing values is solely the responsibility of the Iterable.
 
@@ -72,7 +71,13 @@
 
                 Having a few a event loop threads that do not block and are always processing work is the key to reaching maximum efficiency.
 
-                Which should explain _why_ spring states that they created the WebFlux library.
+                Handling streams of data—especially “live” data whose volume is not predetermined—requires special care in an asynchronous system.
+                The most prominent issue is that resource consumption needs to be controlled such that, a fast data source does not overwhelm the stream destination.
+
+                The main goal of Reactive Streams is to govern the exchange of stream data across an asynchronous boundary—think passing elements on to another thread or thread-pool.
+                While ensuring that the receiving side is not forced to buffer arbitrary amounts of data.
+
+                All of this should explain _why_ spring states that they created the WebFlux library.
 
                 <div class="blockquote">
                     Part of the answer is the need for a non-blocking web stack to handle concurrency with a small number of threads and scale with less hardware resources.
