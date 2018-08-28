@@ -30,23 +30,20 @@
                 A solution would be to introduce even more threads threads, running similar blocking code.
                 Scaling in resource utilization can quickly introduce thread contention and concurrency problems.
 
-                All of those new threads are just sitting there blocking and wasting resources that could be used to do useful work instead of sitting idle, waiting to continue to do work.
+                All of those new threads are just sitting there blocking and wasting resources that could be used to do useful
+                work instead of sitting idle, waiting to continue to do work.
 
-                When a thread is blocked, no work is being done by that thread.
-                It will eventually have to be put back into context, so that it may be worked.
-                If another thread is added, to work on a similar process, eventually that thread is going to block as well.
-                It too, will be waiting, have to be put back into context and get some CPU time.
-                There is a point where spawning more threads to work, the less efficient the tasks come come to be processed.
+                To reiterate, when a thread is blocked, no work is being done by that thread.
+                It will eventually have to be put back into context, so that it may get some CPU time maybe get some work done.
+                So throwing more threads that need to will eventually wait and need to start up again will start to add up.
+                There is a point be reached when spawning new threads to do work becomes hindering rather than helping.
 
-                The OS scheduler, is going to let a thread get *N* amount of clock time, and then it is going to context switch (which can add up as more thnigs need to be process).
+                The OS scheduler, is going to let a thread get *N* amount of clock time, and then it is going to context switch (which can add up as more things need to be process).
                 Which involves moving things out of the direct memory cache, loading up next context of the thread and then trying to process a threads work.
 
                 The more threads that are in need of being processed, the more the context switching needs to happen.
                 As more and more threads spin up, there is point where **thrashing** occurs.
                 Which means that all work being done for the all of the clock cycles is just setting up thread context, not doing any work before tearing down for the next thread to be processed.
-
-                If you look closely, as soon as a program involves some latency
-                (notably I/O, such as a database request or a network call), resources are wasted as a thread (or many threads) now are sitting idle, waiting for responses.
 
                 So the <span style="font-weight: bold">parallelization</span> approach is not a silver bullet, one-size-fits-all solution.
                 However, it is necessary in order to harness the full power of the hardware.
