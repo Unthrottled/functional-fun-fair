@@ -1,8 +1,8 @@
 {
-  "name": "PLACEHOLDER",
-  "version": "1.0.0",
+  "name": "functional-fun-fair",
+  "version": "1.0.2",
   "private": true,
-  "description": "Something discriptive",
+  "description": "helping demystify functional programming",
   "scripts": {
     "test:once": "karma start karma.conf.js --single-run",
     "compile": "tsc -p src/",
