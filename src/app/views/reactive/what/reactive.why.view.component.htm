@@ -1,6 +1,6 @@
 <div>
     <a class="btn btn-sm btn-info"
-       routerLink="/reactive/explanations"><< Back</a>
+       routerLink="/reactive/explanations">Home</a>
     <main role="main" class="container">
         <div class="jumbotron heading">
             <markdown>
@@ -60,7 +60,12 @@
             </markdown>
 
         </div>
-        <a style="margin-top: 1em;" class="btn btn-sm btn-info"
-           routerLink="/reactive/explanations"><< Back</a>
+        <div style="display: flex">
+            <a style="margin-top: 1em;" class="btn btn-sm btn-info"
+               routerLink="/reactive/explanations/what"><< Back</a>
+            <div style="flex-grow: 1;"></div>
+            <a style="margin-top: 1em;" class="btn btn-sm btn-info"
+               routerLink="/reactive/explanations/how">Next >></a>
+        </div>
     </main>
 </div>
