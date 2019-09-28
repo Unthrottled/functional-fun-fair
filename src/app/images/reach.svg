@@ -36,7 +36,7 @@
        style="color-interpolation-filters:sRGB;"
        id="filter1375">
       <feGaussianBlur
-         stdDeviation="5"
+         stdDeviation="2"
          result="result6"
          id="feGaussianBlur1365" />
       <feComposite
