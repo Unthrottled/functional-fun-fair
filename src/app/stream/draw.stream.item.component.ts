@@ -37,7 +37,7 @@ export class DrawStreamItemComponent implements AfterViewInit, OnDestroy {
 
     private createSurface(): { draw: (element: StreamElement) => void } {
         return {
-            draw: el => this.myElement.nativeElement.append(el.element)
+            draw: el => this.myElement.nativeElement.append(el.element.cloneNode(true))
         };
     }
 }

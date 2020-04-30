@@ -34,7 +34,7 @@ var DrawStreamItemComponent = /** @class */ (function () {
     DrawStreamItemComponent.prototype.createSurface = function () {
         var _this = this;
         return {
-            draw: function (el) { return _this.myElement.nativeElement.append(el.element); }
+            draw: function (el) { return _this.myElement.nativeElement.append(el.element.cloneNode(true)); }
         };
     };
     __decorate([
