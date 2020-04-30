@@ -35,12 +35,15 @@ ul, ol, dl, figure,
   color: $meta-color;
 }
 
+.post-content-container{
+  margin: auto;
+}
+
 .post-row {
   padding-bottom: 1em;
 }
 
 .clickable:hover {
-    padding-bottom: 1em;
     cursor: pointer;
 }
 
@@ -63,7 +66,7 @@ ul, ol, dl, figure,
 }
 
 .post-excerpt {
-  color: $post-excerpt;
+  color: #979797;
   font-weight: bold;
   a {
     color: $header-link-color;
@@ -72,6 +75,7 @@ ul, ol, dl, figure,
 
 .post-link {
   color: $post-link-color;
+  text-decoration: underline;
   display: block;
   font-size: 24px;
   font-weight: 400;

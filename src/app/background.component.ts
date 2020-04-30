@@ -69,8 +69,8 @@ export class BackgroundComponent implements AfterViewInit, OnDestroy, AfterViewC
         ctx.quadraticCurveTo(w / 1.85, h, w, 0);
         ctx.lineTo(w, h);
         ctx.lineTo(0, h);
-        ctx.fillStyle = '#282f35';
-        ctx.strokeStyle = '#282F35';
+        ctx.fillStyle = '#EEEEEE';
+        ctx.strokeStyle = '#EEEEEE';
         ctx.fill();
         ctx.closePath();
         ctx.stroke();
