@@ -13,6 +13,7 @@ import {CircleStreamItemService} from "../../stream/CircleStreamItemService";
 import {TriangleStreamItemService} from "../../stream/TriangleStreamItemService";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {RanboShapeOptionsService} from "../../stream/RanboShapeOptionsService";
+import {StreamElement} from '../../stream/Types';
 
 @Component({
     selector: 'list-view',
@@ -36,10 +37,10 @@ export class ListComponent implements OnInit {
 
     mapOne: Function<StreamItem, StreamItem> = {
         apply: (streamItem: StreamItem) => new SingleStreamItem(
-            streamItem.element.map((element: Element) => this.hip2B.createShape(()=>{
+            streamItem.element.map((element: StreamElement) => this.hip2B.createShape(()=>{
                 return {
-                        fill: element.options.get('fill'),
-                            stroke: element.options.get('stroke'),
+                        fill: element.options.fill,
+                            stroke: element.options.stroke,
                     }
                 })
             ))
@@ -47,12 +48,12 @@ export class ListComponent implements OnInit {
 
     flatMapOne: Function<StreamItem, Observable<StreamItem>> = {
         apply: (streamItem: StreamItem) => Observable.create((observer: Observer<StreamItem>) => {
-            streamItem.element.forEach((element: Element) => {
+            streamItem.element.forEach((element: StreamElement) => {
                 let triangle = ()=>
                     this.triangleFactory.createStreamItem(()=>{
                         return {
-                            fill: element.options.get('fill'),
-                                stroke: element.options.get('stroke'),
+                            fill: element.options.fill,
+                                stroke: element.options.stroke,
                         }
                     });
                 observer.next(triangle());

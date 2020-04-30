@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var kendo_drawing_1 = require("@progress/kendo-drawing");
 var DrawStreamItemComponent = /** @class */ (function () {
     function DrawStreamItemComponent(myElement) {
         this.myElement = myElement;
@@ -31,13 +30,12 @@ var DrawStreamItemComponent = /** @class */ (function () {
         this.drawn.emit();
     };
     DrawStreamItemComponent.prototype.ngOnDestroy = function () {
-        this.surface.destroy();
     };
     DrawStreamItemComponent.prototype.createSurface = function () {
-        return this.surface = kendo_drawing_1.Surface.create(this.myElement.nativeElement, {
-            height: "50px",
-            width: "50px"
-        });
+        var _this = this;
+        return {
+            draw: function (el) { return _this.myElement.nativeElement.append(el.element); }
+        };
     };
     __decorate([
         core_1.Output(),
@@ -45,8 +43,8 @@ var DrawStreamItemComponent = /** @class */ (function () {
     ], DrawStreamItemComponent.prototype, "drawn", void 0);
     __decorate([
         core_1.Input(),
-        __metadata("design:type", kendo_drawing_1.Element),
-        __metadata("design:paramtypes", [kendo_drawing_1.Element])
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
     ], DrawStreamItemComponent.prototype, "element", null);
     DrawStreamItemComponent = __decorate([
         core_1.Component({

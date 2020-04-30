@@ -15,6 +15,7 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {MultimapComponent} from "./multimap.component";
 import {RanboShapeOptionsService} from "../../../stream/RanboShapeOptionsService";
 import {ImageUtility} from "../../../utilities/ImageUtility";
+import {StreamElement} from '../../../stream/Types';
 
 @Component({
     selector: 'base-view',
@@ -28,21 +29,21 @@ export class CompleteComponent implements OnInit {
 
     mapOne: Function<StreamItem, StreamItem> = {
         apply: (streamItem: StreamItem) => new SingleStreamItem(
-            streamItem.element.map((element: Element) => this.hip2B.createShape(()=>{return{
-                    fill: element.options.get('fill'),
-                    stroke: element.options.get('stroke'),
+            streamItem.element.map((element: StreamElement) => this.hip2B.createShape(()=>{return{
+                    fill: element.options.fill,
+                    stroke: element.options.stroke,
                 }})
             ))
     };
 
     flatMapOne: Function<StreamItem, Observable<StreamItem>> = {
         apply: (streamItem: StreamItem) => Observable.create((observer: Observer<StreamItem>) => {
-            streamItem.element.forEach((element: Element) => {
+            streamItem.element.forEach((element: StreamElement) => {
                 let triangle = ()=>
                     this.triangleFactory.createStreamItem(()=>{
                         return {
-                            fill: element.options.get('fill'),
-                                stroke: element.options.get('stroke'),
+                            fill: element.options.fill,
+                                stroke: element.options.stroke,
                         }
                     });
                 observer.next(triangle());
@@ -57,7 +58,7 @@ export class CompleteComponent implements OnInit {
     filterOne: Predicate<StreamItem> = {
         test: (item: StreamItem) => {
             return item.element.reduce((allMatch, shape) => {
-                let color = shape.options.get('fill').color;
+                let color = shape.options.fill.color;
                 return allMatch && !(color === 'purple' ||
                     color === 'violet' ||
                     color === 'indigo')

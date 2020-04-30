@@ -1,13 +1,14 @@
 import {StreamItem} from "./StreamItem";
-import {Element, ShapeOptions} from "@progress/kendo-drawing";
+import { ShapeOptions} from "@progress/kendo-drawing";
 import {StreamItemFactory} from "./StreamItemFactory";
 import {SingleStreamItem} from "./SingleStreamItem";
 import {MultiStreamItem} from "./MultiStreamItem";
+import {StreamElement} from './Types';
 
 export abstract class BaseStreamItemService implements StreamItemFactory {
 
     createStreamItems(thisMany: number, options?: () => ShapeOptions): StreamItem {
-        const items: Element[] = [];
+        const items: StreamElement[] = [];
         const itemToEmit = () => this.createShape(options);
         for (let i = 0; i < thisMany; ++i) {
             items.push(itemToEmit());
@@ -19,5 +20,5 @@ export abstract class BaseStreamItemService implements StreamItemFactory {
         return new SingleStreamItem([this.createShape(options)]);
     }
 
-    public abstract createShape(options: () => ShapeOptions): Element;
+    public abstract createShape(options: () => ShapeOptions): StreamElement;
 }

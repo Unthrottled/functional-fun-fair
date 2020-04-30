@@ -32,8 +32,8 @@ var Flatmap101Component = /** @class */ (function () {
                 var element = streamItem.element[0];
                 var elements = _this.circleService.createStreamItems(4, function () {
                     return {
-                        fill: element.options.get('fill'),
-                        stroke: element.options.get('stroke'),
+                        fill: element.options.fill,
+                        stroke: element.options.stroke,
                     };
                 }).element;
                 return new MultiStreamItem_1.MultiStreamItem(elements);

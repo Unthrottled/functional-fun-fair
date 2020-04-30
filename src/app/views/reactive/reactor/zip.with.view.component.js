@@ -28,8 +28,8 @@ var ZipWithViewComponent = /** @class */ (function () {
             apply: function (streamItem, otherStreamItem) {
                 return new SingleStreamItem_1.SingleStreamItem(streamItem.element.map(function () { return _this.hip2B.createShape(function () {
                     return {
-                        fill: otherStreamItem.element[0].options.get('fill'),
-                        stroke: otherStreamItem.element[0].options.get('stroke'),
+                        fill: otherStreamItem.element[0].options.fill,
+                        stroke: otherStreamItem.element[0].options.stroke,
                     };
                 }); }));
             }

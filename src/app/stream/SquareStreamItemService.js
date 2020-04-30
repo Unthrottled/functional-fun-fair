@@ -17,7 +17,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var kendo_drawing_1 = require("@progress/kendo-drawing");
 var RanboShapeOptionsService_1 = require("./RanboShapeOptionsService");
 var BaseStreamItemService_1 = require("./BaseStreamItemService");
 var SquareStreamItemService = /** @class */ (function (_super) {
@@ -26,14 +25,26 @@ var SquareStreamItemService = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     SquareStreamItemService.prototype.createShape = function (options) {
-        // Create the circle geometry and element
-        var path = new kendo_drawing_1.Path((options && options()) || RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption());
-        path.moveTo(0, 0)
-            .lineTo(0, 50)
-            .lineTo(50, 50)
-            .lineTo(50, 0)
-            .close();
-        return path;
+        // path.moveTo(0, 0)
+        //     .lineTo(0, 50)
+        //     .lineTo(50, 50)
+        //     .lineTo(50, 0)
+        //     .close();
+        var circleSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        circleSvg.setAttribute('viewbox', '0 0 100 100');
+        circleSvg.setAttribute('width', '50px');
+        circleSvg.setAttribute('height', '50px');
+        var circleElement = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circleElement.setAttribute('cx', '25');
+        circleElement.setAttribute('cy', '25');
+        circleElement.setAttribute('r', '20');
+        circleElement.setAttribute('fill', 'red');
+        circleSvg.appendChild(circleElement);
+        return {
+            element: circleSvg,
+            options: (options && options()) ||
+                RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption(),
+        };
     };
     SquareStreamItemService = __decorate([
         core_1.Injectable()

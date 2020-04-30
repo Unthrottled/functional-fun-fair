@@ -26,7 +26,7 @@ var FilterViewComponent = /** @class */ (function () {
         this.filterOne = {
             test: function (item) {
                 return item.element.reduce(function (allMatch, shape) {
-                    var color = shape.options.get('fill').color;
+                    var color = shape.options.fill.color;
                     return allMatch && !(color === 'purple' ||
                         color === 'violet' ||
                         color === 'indigo');

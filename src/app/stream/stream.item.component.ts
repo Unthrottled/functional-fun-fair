@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output} from "@angular/core";
-import {StreamItem} from "./StreamItem";
-import {SingleStreamItem} from "./SingleStreamItem";
-import {MultiStreamItem} from "./MultiStreamItem";
-import {Element} from "@progress/kendo-drawing";
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {StreamItem} from './StreamItem';
+import {SingleStreamItem} from './SingleStreamItem';
+import {MultiStreamItem} from './MultiStreamItem';
+import {StreamElement} from './Types';
 
 @Component({
     selector: 'stream-item',
@@ -24,14 +24,9 @@ import {Element} from "@progress/kendo-drawing";
     `
 })
 export class StreamItemComponent implements OnInit {
-    ngOnInit(): void {
-        this.streamItem.element
-            .forEach(element => this.elements.push(element));
-        this.allElementsReceived()
-    }
     @Output()
     private drawn = new EventEmitter<void>();
-    private elements: Element[] = [];
+    private elements: StreamElement[] = [];
     private allElementsAdded = false;
     private numDrawn = 0;
 
@@ -55,6 +50,12 @@ export class StreamItemComponent implements OnInit {
 
     get heyGurlYouAFreak(): boolean {
         return this.streamItem instanceof MultiStreamItem;
+    }
+
+    ngOnInit(): void {
+        this.streamItem.element
+            .forEach(element => this.elements.push(element));
+        this.allElementsReceived();
     }
 
     itemDrawn() {

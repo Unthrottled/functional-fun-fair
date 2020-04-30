@@ -1,19 +1,19 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit} from '@angular/core';
 
 import './multimap.component.htm';
-import {SingleStreamItem} from "../../../stream/SingleStreamItem";
-import {StreamItem} from "../../../stream/StreamItem";
-import {Observer} from "rxjs/Observer";
-import {Observable} from "rxjs/Observable";
-import {Function} from "../../../stream/Function";
-import {Scheduler} from "rxjs/Rx";
-import {SquareStreamItemService} from "../../../stream/SquareStreamItemService";
-import {CircleStreamItemService} from "../../../stream/CircleStreamItemService";
-import {TriangleStreamItemService} from "../../../stream/TriangleStreamItemService";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
-import {RanboShapeOptionsService} from "../../../stream/RanboShapeOptionsService";
-import {StreamItemFactory} from "../../../stream/StreamItemFactory";
-import {ImageUtility} from "../../../utilities/ImageUtility";
+import {SingleStreamItem} from '../../../stream/SingleStreamItem';
+import {StreamItem} from '../../../stream/StreamItem';
+import {Observer} from 'rxjs/Observer';
+import {Observable} from 'rxjs/Observable';
+import {Function} from '../../../stream/Function';
+import {Scheduler} from 'rxjs/Rx';
+import {SquareStreamItemService} from '../../../stream/SquareStreamItemService';
+import {CircleStreamItemService} from '../../../stream/CircleStreamItemService';
+import {TriangleStreamItemService} from '../../../stream/TriangleStreamItemService';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {RanboShapeOptionsService} from '../../../stream/RanboShapeOptionsService';
+import {StreamItemFactory} from '../../../stream/StreamItemFactory';
+import {ImageUtility} from '../../../utilities/ImageUtility';
 
 
 @Component({
@@ -34,12 +34,12 @@ export class MultimapComponent implements OnInit {
                 this.circleService
             ];
             const triangle = () => {
-                return objectFactories[index = ++index % objectFactories.length].createStreamItem(()=>{
+                return objectFactories[index = ++index % objectFactories.length].createStreamItem(() => {
                     let element = streamItem.element[0];
                     return {
-                        fill: element.options.get("fill"),
-                        stroke: element.options.get("stroke"),
-                    }
+                        fill: element.options.fill,
+                        stroke: element.options.stroke,
+                    };
                 });
             };
             observer.next(triangle());
@@ -50,6 +50,8 @@ export class MultimapComponent implements OnInit {
                     observer.complete);
         })
     };
+    sourcePicture = ImageUtility.circleSource;
+    flatmapPicture = ImageUtility.circleToMany;
     private itemsToMoveAlong: StreamItem[] = [];
     private sourceOutputSubject = new BehaviorSubject(null);
     sourceOutputStream = this.sourceOutputSubject.filter(item => !!item);
@@ -57,9 +59,6 @@ export class MultimapComponent implements OnInit {
     private streamSourceInputSubject = new BehaviorSubject<StreamItem>(null);
     streamSourceInput = this.streamSourceInputSubject.filter(item => !!item);
     private listIndex = -1;
-
-    sourcePicture = ImageUtility.circleSource;
-    flatmapPicture = ImageUtility.circleToMany;
 
     constructor(private triangleFactory: TriangleStreamItemService,
                 private hip2B: SquareStreamItemService,

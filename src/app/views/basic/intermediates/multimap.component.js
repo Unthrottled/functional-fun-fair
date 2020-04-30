@@ -38,8 +38,8 @@ var MultimapComponent = /** @class */ (function () {
                     return objectFactories[index = ++index % objectFactories.length].createStreamItem(function () {
                         var element = streamItem.element[0];
                         return {
-                            fill: element.options.get("fill"),
-                            stroke: element.options.get("stroke"),
+                            fill: element.options.fill,
+                            stroke: element.options.stroke,
                         };
                     });
                 };
@@ -49,6 +49,8 @@ var MultimapComponent = /** @class */ (function () {
                     .subscribe(function (_) { return observer.next(triangle()); }, observer.error, observer.complete);
             }); }
         };
+        this.sourcePicture = ImageUtility_1.ImageUtility.circleSource;
+        this.flatmapPicture = ImageUtility_1.ImageUtility.circleToMany;
         this.itemsToMoveAlong = [];
         this.sourceOutputSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.sourceOutputStream = this.sourceOutputSubject.filter(function (item) { return !!item; });
@@ -56,8 +58,6 @@ var MultimapComponent = /** @class */ (function () {
         this.streamSourceInputSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.streamSourceInput = this.streamSourceInputSubject.filter(function (item) { return !!item; });
         this.listIndex = -1;
-        this.sourcePicture = ImageUtility_1.ImageUtility.circleSource;
-        this.flatmapPicture = ImageUtility_1.ImageUtility.circleToMany;
     }
     MultimapComponent_1 = MultimapComponent;
     MultimapComponent.prototype.ngOnInit = function () {

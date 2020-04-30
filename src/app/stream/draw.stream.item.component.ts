@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, Output} from "@angular/core";
-import {Surface, Element} from '@progress/kendo-drawing';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, Output} from '@angular/core';
+import {StreamElement} from './Types';
 
 @Component({
     selector: 'draw-stream-item',
@@ -9,39 +9,35 @@ import {Surface, Element} from '@progress/kendo-drawing';
 })
 export class DrawStreamItemComponent implements AfterViewInit, OnDestroy {
 
-    private surface: Surface;
     @Output()
     private drawn = new EventEmitter<void>();
 
     constructor(private myElement: ElementRef) {
     }
 
-    private _element: Element;
+    private _element: StreamElement;
 
     @Input()
-    get element(): Element {
+    get element(): StreamElement {
         return this._element;
     }
 
-    set element(value: Element) {
+    set element(value: StreamElement) {
         this._element = value;
     }
 
 
     public ngAfterViewInit(): void {
         this.createSurface().draw(this.element);
-        this.drawn.emit()
-
+        this.drawn.emit();
     }
 
     public ngOnDestroy() {
-        this.surface.destroy();
     }
 
-    private createSurface(): Surface {
-        return this.surface = Surface.create(this.myElement.nativeElement, {
-            height: "50px",
-            width: "50px"
-        });
+    private createSurface(): { draw: (element: StreamElement) => void } {
+        return {
+            draw: el => this.myElement.nativeElement.append(el.element)
+        };
     }
 }

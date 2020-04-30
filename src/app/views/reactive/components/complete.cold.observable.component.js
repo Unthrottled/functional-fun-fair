@@ -28,8 +28,8 @@ var CompleteColdObservableComponent = /** @class */ (function () {
         this.mapOne = {
             apply: function (streamItem) { return new SingleStreamItem_1.SingleStreamItem(streamItem.element.map(function (element) { return _this.hip2B.createShape(function () {
                 return {
-                    fill: element.options.get('fill'),
-                    stroke: element.options.get('stroke'),
+                    fill: element.options.fill,
+                    stroke: element.options.stroke,
                 };
             }); })); }
         };
@@ -39,8 +39,8 @@ var CompleteColdObservableComponent = /** @class */ (function () {
                     var triangle = function () {
                         return _this.triangleFactory.createStreamItem(function () {
                             return {
-                                fill: element.options.get('fill'),
-                                stroke: element.options.get('stroke'),
+                                fill: element.options.fill,
+                                stroke: element.options.stroke,
                             };
                         });
                     };
@@ -54,7 +54,7 @@ var CompleteColdObservableComponent = /** @class */ (function () {
         this.filterOne = {
             test: function (item) {
                 return item.element.reduce(function (allMatch, shape) {
-                    var color = shape.options.get('fill').color;
+                    var color = shape.options.fill.color;
                     return allMatch && !(color === 'purple' ||
                         color === 'violet' ||
                         color === 'indigo');

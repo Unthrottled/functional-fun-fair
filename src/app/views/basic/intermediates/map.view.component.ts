@@ -1,16 +1,16 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit} from '@angular/core';
 import './map.view.component.htm';
-import {SingleStreamItem} from "../../../stream/SingleStreamItem";
-import {StreamItem} from "../../../stream/StreamItem";
-import {Observable} from "rxjs/Observable";
-import {Function} from "../../../stream/Function";
-import {Element} from "@progress/kendo-drawing";
-import {SquareStreamItemService} from "../../../stream/SquareStreamItemService";
-import {CircleStreamItemService} from "../../../stream/CircleStreamItemService";
-import {TriangleStreamItemService} from "../../../stream/TriangleStreamItemService";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
-import {RanboShapeOptionsService} from "../../../stream/RanboShapeOptionsService";
-import {ImageUtility} from "../../../utilities/ImageUtility";
+import {SingleStreamItem} from '../../../stream/SingleStreamItem';
+import {StreamItem} from '../../../stream/StreamItem';
+import {Function} from '../../../stream/Function';
+import {Element} from '@progress/kendo-drawing';
+import {SquareStreamItemService} from '../../../stream/SquareStreamItemService';
+import {CircleStreamItemService} from '../../../stream/CircleStreamItemService';
+import {TriangleStreamItemService} from '../../../stream/TriangleStreamItemService';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {RanboShapeOptionsService} from '../../../stream/RanboShapeOptionsService';
+import {ImageUtility} from '../../../utilities/ImageUtility';
+import {StreamElement} from '../../../stream/Types';
 
 @Component({
     selector: 'map-view',
@@ -23,11 +23,11 @@ export class MapViewComponent implements OnInit {
     list: StreamItem;
     mapOne: Function<StreamItem, StreamItem> = {
         apply: (streamItem: StreamItem) => new SingleStreamItem(
-            streamItem.element.map((element: Element) => this.hip2B.createShape(() => {
+            streamItem.element.map((element: StreamElement) => this.hip2B.createShape(() => {
                     return {
-                        fill: element.options.get('fill'),
-                        stroke: element.options.get('stroke'),
-                    }
+                        fill: element.options.fill,
+                        stroke: element.options.stroke,
+                    };
                 })
             ))
     };
@@ -49,9 +49,9 @@ export class MapViewComponent implements OnInit {
     ngOnInit(): void {
         this.list = this.circleService.createStreamItems(MapViewComponent.numItems, RanboShapeOptionsService.createStreamOption)
         this.list.element
-            .map(el=>[el])
-            .map(element=>new SingleStreamItem(element))
-            .forEach(item=> this.itemsToMoveAlong.push(item));
+            .map(el => [el])
+            .map(element => new SingleStreamItem(element))
+            .forEach(item => this.itemsToMoveAlong.push(item));
         this.startStreamOne();
     }
 
@@ -60,7 +60,7 @@ export class MapViewComponent implements OnInit {
     }
 
     mapOneComplete(steamItem: StreamItem) {
-        this.startStreamOne()
+        this.startStreamOne();
     }
 
     startStreamOne(): void {

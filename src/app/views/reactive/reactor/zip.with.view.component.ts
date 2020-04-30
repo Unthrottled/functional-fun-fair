@@ -23,8 +23,8 @@ export class ZipWithViewComponent implements OnInit {
             new SingleStreamItem(
                 streamItem.element.map(() => this.hip2B.createShape(() => {
                         return {
-                            fill: otherStreamItem.element[0].options.get('fill'),
-                            stroke: otherStreamItem.element[0].options.get('stroke'),
+                            fill: otherStreamItem.element[0].options.fill,
+                            stroke: otherStreamItem.element[0].options.stroke,
                         }
                     })
                 ))
