@@ -35,13 +35,13 @@ var ColdSequenceViewComponent = /** @class */ (function () {
         };
         this.sourcePicture = ImageUtility_1.ImageUtility.circleSource;
         this.mapPicture = ImageUtility_1.ImageUtility.circleSquare;
-        this._itemsToMoveAlong = [];
+        this.subscribers = [1];
         this.sourceOutputSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.sourceOutput = this.sourceOutputSubject.filter(function (item) { return !!item; });
         this.streamSourceInputSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.streamSourceInput = this.streamSourceInputSubject.filter(function (item) { return !!item; });
         this.listIndex = -1;
-        this.subscribers = [1];
+        this._itemsToMoveAlong = [];
     }
     ColdSequenceViewComponent_1 = ColdSequenceViewComponent;
     Object.defineProperty(ColdSequenceViewComponent.prototype, "itemsToMoveAlong", {

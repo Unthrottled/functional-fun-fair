@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {OptionsStore, ShapeOptions} from '@progress/kendo-drawing';
+import {ShapeOptions} from '@progress/kendo-drawing';
 import {BaseStreamItemService} from './BaseStreamItemService';
 import {StreamElement} from './Types';
 import {RanboShapeOptionsService} from './RanboShapeOptionsService';

@@ -1,19 +1,17 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import './complete.cold.observable.component.htm';
-import {SingleStreamItem} from "../../../stream/SingleStreamItem";
-import {StreamItem} from "../../../stream/StreamItem";
-import {Observer} from "rxjs/Observer";
-import {Observable} from "rxjs/Observable";
-import {Predicate} from "../../../stream/Predicate";
-import {Function} from "../../../stream/Function";
-import {Element} from "@progress/kendo-drawing";
-import {Scheduler} from "rxjs/Rx";
-import {SquareStreamItemService} from "../../../stream/SquareStreamItemService";
-import {CircleStreamItemService} from "../../../stream/CircleStreamItemService";
-import {TriangleStreamItemService} from "../../../stream/TriangleStreamItemService";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
-import {RanboShapeOptionsService} from "../../../stream/RanboShapeOptionsService";
-import {ImageUtility} from "../../../utilities/ImageUtility";
+import {SingleStreamItem} from '../../../stream/SingleStreamItem';
+import {StreamItem} from '../../../stream/StreamItem';
+import {Observer} from 'rxjs/Observer';
+import {Observable} from 'rxjs/Observable';
+import {Predicate} from '../../../stream/Predicate';
+import {Function} from '../../../stream/Function';
+import {Scheduler} from 'rxjs/Rx';
+import {SquareStreamItemService} from '../../../stream/SquareStreamItemService';
+import {CircleStreamItemService} from '../../../stream/CircleStreamItemService';
+import {TriangleStreamItemService} from '../../../stream/TriangleStreamItemService';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {ImageUtility} from '../../../utilities/ImageUtility';
 import {StreamElement} from '../../../stream/Types';
 
 @Component({
@@ -28,21 +26,23 @@ export class CompleteColdObservableComponent implements OnInit {
 
     mapOne: Function<StreamItem, StreamItem> = {
         apply: (streamItem: StreamItem) => new SingleStreamItem(
-            streamItem.element.map((element: StreamElement) => this.hip2B.createShape(()=>{return{
-                    fill: element.options.fill,
-                    stroke: element.options.stroke,
-                }})
+            streamItem.element.map((element: StreamElement) => this.hip2B.createShape(() => {
+                    return {
+                        fill: element.options.fill,
+                        stroke: element.options.stroke,
+                    }
+                })
             ))
     };
 
     flatMapOne: Function<StreamItem, Observable<StreamItem>> = {
         apply: (streamItem: StreamItem) => Observable.create((observer: Observer<StreamItem>) => {
             streamItem.element.forEach((element: StreamElement) => {
-                let triangle = ()=>
-                    this.triangleFactory.createStreamItem(()=>{
+                let triangle = () =>
+                    this.triangleFactory.createStreamItem(() => {
                         return {
                             fill: element.options.fill,
-                                stroke: element.options.stroke,
+                            stroke: element.options.stroke,
                         }
                     });
                 observer.next(triangle());
@@ -64,9 +64,27 @@ export class CompleteColdObservableComponent implements OnInit {
             }, true);
         }
     };
+    sourcePicture = ImageUtility.circleSource;
+    filterPicture = ImageUtility.filterCircle;
+    flatmapPicture = ImageUtility.circleTriangle;
+    mapPicture = ImageUtility.triangeSquare;
+    private listIndex = -1;
+    private sourceOutputSubject = new BehaviorSubject(null);
+    sourceOutput = this.sourceOutputSubject.filter(item => !!item);
+    private mapSubject = new BehaviorSubject(null);
+    private flatMapSubject = new BehaviorSubject(null);
+    flatMapOutputStream = this.flatMapSubject.filter(item => !!item);
+    private filterSubject = new BehaviorSubject(null);
+    filterOutputStream = this.filterSubject.filter(item => !!item);
+    private streamSourceInputSubject = new BehaviorSubject<StreamItem>(null);
+    streamSourceInput = this.streamSourceInputSubject.filter(item => !!item);
+
+    constructor(private triangleFactory: TriangleStreamItemService,
+                private hip2B: SquareStreamItemService,
+                private circleService: CircleStreamItemService) {
+    }
 
     private _itemsToMoveAlong: StreamItem[] = [];
-
 
     @Input()
     get itemsToMoveAlong(): StreamItem[] {
@@ -75,31 +93,6 @@ export class CompleteColdObservableComponent implements OnInit {
 
     set itemsToMoveAlong(value: StreamItem[]) {
         this._itemsToMoveAlong = value;
-    }
-
-    private listIndex = -1;
-    private sourceOutputSubject = new BehaviorSubject(null);
-    sourceOutput = this.sourceOutputSubject.filter(item => !!item);
-
-    private mapSubject = new BehaviorSubject(null);
-
-    private flatMapSubject = new BehaviorSubject(null);
-    flatMapOutputStream = this.flatMapSubject.filter(item => !!item);
-
-    private filterSubject = new BehaviorSubject(null);
-    filterOutputStream = this.filterSubject.filter(item => !!item);
-
-    private streamSourceInputSubject = new BehaviorSubject<StreamItem>(null);
-    streamSourceInput = this.streamSourceInputSubject.filter(item => !!item);
-
-    sourcePicture = ImageUtility.circleSource;
-    filterPicture = ImageUtility.filterCircle;
-    flatmapPicture = ImageUtility.circleTriangle;
-    mapPicture = ImageUtility.triangeSquare;
-
-    constructor(private triangleFactory: TriangleStreamItemService,
-                private hip2B: SquareStreamItemService,
-                private circleService: CircleStreamItemService) {
     }
 
     sourceComplete(item: StreamItem) {
@@ -125,7 +118,7 @@ export class CompleteColdObservableComponent implements OnInit {
 
 
     ngOnInit(): void {
-        Observable.interval(2000).subscribe(()=> this.startStreamOne())
+        Observable.interval(2000).subscribe(() => this.startStreamOne())
 
     }
 

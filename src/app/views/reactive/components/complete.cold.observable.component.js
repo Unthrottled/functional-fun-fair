@@ -61,7 +61,10 @@ var CompleteColdObservableComponent = /** @class */ (function () {
                 }, true);
             }
         };
-        this._itemsToMoveAlong = [];
+        this.sourcePicture = ImageUtility_1.ImageUtility.circleSource;
+        this.filterPicture = ImageUtility_1.ImageUtility.filterCircle;
+        this.flatmapPicture = ImageUtility_1.ImageUtility.circleTriangle;
+        this.mapPicture = ImageUtility_1.ImageUtility.triangeSquare;
         this.listIndex = -1;
         this.sourceOutputSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.sourceOutput = this.sourceOutputSubject.filter(function (item) { return !!item; });
@@ -72,10 +75,7 @@ var CompleteColdObservableComponent = /** @class */ (function () {
         this.filterOutputStream = this.filterSubject.filter(function (item) { return !!item; });
         this.streamSourceInputSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.streamSourceInput = this.streamSourceInputSubject.filter(function (item) { return !!item; });
-        this.sourcePicture = ImageUtility_1.ImageUtility.circleSource;
-        this.filterPicture = ImageUtility_1.ImageUtility.filterCircle;
-        this.flatmapPicture = ImageUtility_1.ImageUtility.circleTriangle;
-        this.mapPicture = ImageUtility_1.ImageUtility.triangeSquare;
+        this._itemsToMoveAlong = [];
     }
     CompleteColdObservableComponent_1 = CompleteColdObservableComponent;
     Object.defineProperty(CompleteColdObservableComponent.prototype, "itemsToMoveAlong", {

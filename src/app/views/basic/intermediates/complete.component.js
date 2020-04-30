@@ -62,6 +62,10 @@ var CompleteComponent = /** @class */ (function () {
                 }, true);
             }
         };
+        this.sourcePicture = ImageUtility_1.ImageUtility.circleSource;
+        this.filterPicture = ImageUtility_1.ImageUtility.filterCircle;
+        this.flatmapPicture = ImageUtility_1.ImageUtility.circleTriangle;
+        this.mapPicture = ImageUtility_1.ImageUtility.triangeSquare;
         this.itemsToMoveAlong = [];
         this.listIndex = -1;
         this.sourceOutputSubject = new BehaviorSubject_1.BehaviorSubject(null);
@@ -74,10 +78,6 @@ var CompleteComponent = /** @class */ (function () {
         this.filterOutputStream = this.filterSubject.filter(function (item) { return !!item; });
         this.streamSourceInputSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.streamSourceInput = this.streamSourceInputSubject.filter(function (item) { return !!item; });
-        this.sourcePicture = ImageUtility_1.ImageUtility.circleSource;
-        this.filterPicture = ImageUtility_1.ImageUtility.filterCircle;
-        this.flatmapPicture = ImageUtility_1.ImageUtility.circleTriangle;
-        this.mapPicture = ImageUtility_1.ImageUtility.triangeSquare;
     }
     CompleteComponent_1 = CompleteComponent;
     CompleteComponent.prototype.sourceComplete = function (item) {

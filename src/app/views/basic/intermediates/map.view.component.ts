@@ -3,7 +3,6 @@ import './map.view.component.htm';
 import {SingleStreamItem} from '../../../stream/SingleStreamItem';
 import {StreamItem} from '../../../stream/StreamItem';
 import {Function} from '../../../stream/Function';
-import {Element} from '@progress/kendo-drawing';
 import {SquareStreamItemService} from '../../../stream/SquareStreamItemService';
 import {CircleStreamItemService} from '../../../stream/CircleStreamItemService';
 import {TriangleStreamItemService} from '../../../stream/TriangleStreamItemService';

@@ -1,4 +1,3 @@
-import {Element} from "@progress/kendo-drawing";
 import {BaseStreamItem} from "./BaseStreamItem";
 import {StreamElement} from './Types';
 
