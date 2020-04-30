@@ -55,7 +55,7 @@ export class StreamItemComponent implements OnInit {
     ngOnInit(): void {
         this.streamItem.element
             .forEach(element => this.elements.push(element));
-        this.allElementsReceived();
+        this.allElementsReceived()
     }
 
     itemDrawn() {
