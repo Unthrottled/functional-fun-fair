@@ -45,7 +45,6 @@ h6, .h6 {
 }
 
 .app-container {
-  padding: 20px;
 }
 
 
@@ -289,4 +288,11 @@ fieldset[disabled] a.btn {
   background-color: #117a8b;
   border-color: #10707f;
   box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
+}
+
+#main {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
 }

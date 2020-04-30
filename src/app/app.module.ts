@@ -29,6 +29,7 @@ import {ReactiveLandingViewComponent} from './views/reactive/reactive.landing.vi
 import {ReactiveConceptsViewComponent} from './views/reactive/reactive.concepts.view.component';
 import {ReactiveVisualisationsViewComponent} from './views/reactive/reactive.visualisations.view.component';
 import {ReactiveReactorViewComponent} from './views/reactive/reactive.reactor.view.component';
+import {BackgroundComponent} from './background.component';
 
 
 const appRoutes: Routes = [
@@ -77,6 +78,7 @@ const appRoutes: Routes = [
     declarations: [
         AppComponent,
         LandingComponent,
+        BackgroundComponent,
     ],
     bootstrap: [AppComponent],
     providers: []

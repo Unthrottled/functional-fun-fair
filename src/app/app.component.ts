@@ -10,8 +10,6 @@ export class AppComponent implements OnInit {
     versionNumber: string = 'v.1.1.0';
 
     constructor(private router: Router) {
-
-
     }
 
     ngOnInit(): void {
@@ -22,5 +20,4 @@ export class AppComponent implements OnInit {
             window.scrollTo(0, 0);
         });
     }
-
 }
