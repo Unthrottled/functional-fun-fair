@@ -42,16 +42,12 @@ ul, ol, dl, figure,
 .clickable:hover {
     padding-bottom: 1em;
     cursor: pointer;
-    box-shadow: 0 0 2em 0 transparentize($dropShadow, 0.1);
 }
 
 .post-container {
-  background: $post-container;
   border-radius: 5px;
   padding: 10px;
   display: flex;
-  box-shadow: 0 4px 8px 0 transparentize($dropShadow, 0.7);
-  @include hexRain;
 }
 
 .post-container div {
