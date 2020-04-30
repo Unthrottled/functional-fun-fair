@@ -25,24 +25,21 @@ var TriangleStreamItemService = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     TriangleStreamItemService.prototype.createShape = function (options) {
-        // path.moveTo(25, 0)
-        //     .lineTo(50, 50)
-        //     .lineTo(0, 50)
-        //     .close();
-        var circleSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        circleSvg.setAttribute('viewbox', '0 0 100 100');
-        circleSvg.setAttribute('width', '50px');
-        circleSvg.setAttribute('height', '50px');
-        var circleElement = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        circleElement.setAttribute('cx', '25');
-        circleElement.setAttribute('cy', '25');
-        circleElement.setAttribute('r', '20');
-        circleElement.setAttribute('fill', 'red');
-        circleSvg.appendChild(circleElement);
+        var triangleSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        triangleSvg.setAttribute('viewbox', '0 0 100 100');
+        triangleSvg.setAttribute('width', '50px');
+        triangleSvg.setAttribute('height', '50px');
+        var shapeOptions = (options && options()) ||
+            RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption();
+        var triangeElement = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+        triangeElement.setAttribute('points', '25,0 50,50 0,50');
+        triangeElement.setAttribute('fill', shapeOptions.fill.color);
+        triangeElement.setAttribute('stroke', shapeOptions.stroke.color);
+        triangeElement.setAttribute('stroke-width', shapeOptions.stroke.width.toString());
+        triangleSvg.appendChild(triangeElement);
         return {
-            element: circleSvg,
-            options: (options && options()) ||
-                RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption(),
+            element: triangleSvg,
+            options: shapeOptions,
         };
     };
     TriangleStreamItemService = __decorate([

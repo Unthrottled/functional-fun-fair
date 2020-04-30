@@ -29,16 +29,19 @@ var CircleStreamItemService = /** @class */ (function (_super) {
         circleSvg.setAttribute('viewbox', '0 0 100 100');
         circleSvg.setAttribute('width', '50px');
         circleSvg.setAttribute('height', '50px');
+        var shapeOptions = (options && options()) ||
+            RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption();
         var circleElement = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         circleElement.setAttribute('cx', '25');
         circleElement.setAttribute('cy', '25');
         circleElement.setAttribute('r', '20');
-        circleElement.setAttribute('fill', 'red');
+        circleElement.setAttribute('fill', shapeOptions.fill.color);
+        circleElement.setAttribute('stroke', shapeOptions.stroke.color);
+        circleElement.setAttribute('stroke-width', shapeOptions.stroke.width.toString());
         circleSvg.appendChild(circleElement);
         return {
             element: circleSvg,
-            options: (options && options()) ||
-                RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption(),
+            options: shapeOptions,
         };
     };
     CircleStreamItemService = __decorate([
