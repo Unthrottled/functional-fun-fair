@@ -17,7 +17,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var kendo_drawing_1 = require("@progress/kendo-drawing");
 var RanboShapeOptionsService_1 = require("./RanboShapeOptionsService");
 var BaseStreamItemService_1 = require("./BaseStreamItemService");
 var SquareStreamItemService = /** @class */ (function (_super) {
@@ -26,14 +25,23 @@ var SquareStreamItemService = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     SquareStreamItemService.prototype.createShape = function (options) {
-        // Create the circle geometry and element
-        var path = new kendo_drawing_1.Path((options && options()) || RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption());
-        path.moveTo(0, 0)
-            .lineTo(0, 50)
-            .lineTo(50, 50)
-            .lineTo(50, 0)
-            .close();
-        return path;
+        var rectSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        rectSvg.setAttribute('viewbox', '0 0 100 100');
+        rectSvg.setAttribute('width', '50px');
+        rectSvg.setAttribute('height', '50px');
+        var shapeOptions = (options && options()) ||
+            RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption();
+        var getRectKid = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        getRectKid.setAttribute('width', '50');
+        getRectKid.setAttribute('height', '50');
+        getRectKid.setAttribute('fill', shapeOptions.fill.color);
+        getRectKid.setAttribute('stroke', shapeOptions.stroke.color);
+        getRectKid.setAttribute('stroke-width', shapeOptions.stroke.width.toString());
+        rectSvg.appendChild(getRectKid);
+        return {
+            element: rectSvg,
+            options: shapeOptions,
+        };
     };
     SquareStreamItemService = __decorate([
         core_1.Injectable()

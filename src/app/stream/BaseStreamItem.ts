@@ -1,14 +1,14 @@
-import {Element} from "@progress/kendo-drawing";
 import {StreamItem} from "./StreamItem";
+import {StreamElement} from './Types';
 
 export class BaseStreamItem implements StreamItem {
 
     //Sure would be nice to have a Mono or Flux :)
-    constructor(private _element: Element[]) {
+    constructor(private _element: StreamElement[]) {
         this._identifier = new Date().getTime();
     }
 
-    get element(): Element[] {
+    get element(): StreamElement[] {
         return this._element;
     }
 

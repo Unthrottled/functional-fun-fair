@@ -27,8 +27,8 @@ var MapViewComponent = /** @class */ (function () {
         this.mapOne = {
             apply: function (streamItem) { return new SingleStreamItem_1.SingleStreamItem(streamItem.element.map(function (element) { return _this.hip2B.createShape(function () {
                 return {
-                    fill: element.options.get('fill'),
-                    stroke: element.options.get('stroke'),
+                    fill: element.options.fill,
+                    stroke: element.options.stroke,
                 };
             }); })); }
         };

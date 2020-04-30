@@ -28,20 +28,20 @@ var ColdSequenceViewComponent = /** @class */ (function () {
         this.mapOne = {
             apply: function (streamItem) { return new SingleStreamItem_1.SingleStreamItem(streamItem.element.map(function (element) { return _this.hip2B.createShape(function () {
                 return {
-                    fill: element.options.get('fill'),
-                    stroke: element.options.get('stroke'),
+                    fill: element.options.fill,
+                    stroke: element.options.stroke,
                 };
             }); })); }
         };
         this.sourcePicture = ImageUtility_1.ImageUtility.circleSource;
         this.mapPicture = ImageUtility_1.ImageUtility.circleSquare;
-        this._itemsToMoveAlong = [];
+        this.subscribers = [1];
         this.sourceOutputSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.sourceOutput = this.sourceOutputSubject.filter(function (item) { return !!item; });
         this.streamSourceInputSubject = new BehaviorSubject_1.BehaviorSubject(null);
         this.streamSourceInput = this.streamSourceInputSubject.filter(function (item) { return !!item; });
         this.listIndex = -1;
-        this.subscribers = [1];
+        this._itemsToMoveAlong = [];
     }
     ColdSequenceViewComponent_1 = ColdSequenceViewComponent;
     Object.defineProperty(ColdSequenceViewComponent.prototype, "itemsToMoveAlong", {

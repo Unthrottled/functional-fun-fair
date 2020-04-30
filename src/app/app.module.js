@@ -36,6 +36,7 @@ var reactive_landing_view_component_1 = require("./views/reactive/reactive.landi
 var reactive_concepts_view_component_1 = require("./views/reactive/reactive.concepts.view.component");
 var reactive_visualisations_view_component_1 = require("./views/reactive/reactive.visualisations.view.component");
 var reactive_reactor_view_component_1 = require("./views/reactive/reactive.reactor.view.component");
+var background_component_1 = require("./background.component");
 var appRoutes = [
     { path: 'streams', component: basics_view_component_1.BasicsViewComponent },
     { path: 'reactive', component: reactive_landing_view_component_1.ReactiveLandingViewComponent },
@@ -84,6 +85,7 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 app_component_1.AppComponent,
                 landing_component_1.LandingComponent,
+                background_component_1.BackgroundComponent,
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: []

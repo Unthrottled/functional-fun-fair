@@ -7,6 +7,7 @@ import {TriangleStreamItemService} from "../../stream/TriangleStreamItemService"
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {MultiStreamItem} from "../../stream/MultiStreamItem";
 import {Element} from "@progress/kendo-drawing";
+import {StreamElement} from '../../stream/Types';
 
 @Component({
     selector: 'flatmap-view',
@@ -16,11 +17,11 @@ export class FlatmapSimpleComponent {
 
     mapTwo: Function<StreamItem, StreamItem> = {
         apply: (streamItem: StreamItem) => {
-            let element: Element = streamItem.element[0];
+            let element: StreamElement = streamItem.element[0];
             let elements = this.circleService.createStreamItems(4, () => {
                 return {
-                    fill: element.options.get('fill'),
-                    stroke: element.options.get('stroke'),
+                    fill: element.options.fill,
+                    stroke: element.options.stroke,
                 }
             }).element;
 

@@ -23,7 +23,7 @@ export class FilterViewComponent implements OnInit {
     filterOne: Predicate<StreamItem> = {
         test: (item: StreamItem) => {
             return item.element.reduce((allMatch, shape) => {
-                let color = shape.options.get('fill').color;
+                let color = shape.options.fill.color;
                 return allMatch && !(color === 'purple' ||
                     color === 'violet' ||
                     color === 'indigo')

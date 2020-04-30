@@ -45,7 +45,6 @@ h6, .h6 {
 }
 
 .app-container {
-  padding: 20px;
 }
 
 
@@ -55,11 +54,9 @@ img {
 
 
 .content-container {
-  background: #e6e6e6;
-  color: #3e3e3e;
+  color: #303036;
   padding: 10px;
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
@@ -84,15 +81,13 @@ img {
 
 .heading {
   text-align: center;
+  background-color: transparent !important;
 }
 
 label {
   display: block !important;
   text-align: left;
   margin-bottom: 3rem !important;
-
-
-
 }
 
 .info-header{
@@ -289,4 +284,15 @@ fieldset[disabled] a.btn {
   background-color: #117a8b;
   border-color: #10707f;
   box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
+}
+
+#main {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+}
+
+.section-title {
+  color: $post-link-color;
 }

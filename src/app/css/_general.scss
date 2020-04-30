@@ -41,57 +41,63 @@ $grey-color-dark: darken($grey-color, 25%);
 $dropShadow: $reach-drop-shadow;
 $icon-color: $grey-color;
 $link-color: $reach-light-purple;
-$header-link-color: $reach-dark-purple;
-$post-link-color: $reach-diamond-light-grey;
+$header-link-color: #138496;
+$post-link-color: #138496;
 $border-color: $reach-purple;
 $code-background: $reach-light-white;
 $code-base-color: $reach-diamond-dark-grey;
 $header-border: $reach-purple;
 $boxed-content: $reach-diamond-dark-grey;
 $title-color: $reach-white;
-$link-background: $reach-dark-purple;
+$link-background: #138496;
 $header-link-background: $reach-white;
 $link-hover: $reach-burned-purple;
 $font-color: $reach-light-grey;
-$post-excerpt: $reach-white;
+$post-excerpt: $reach-diamond-dark-grey;
 $post-container: $reach-light-grey;
 $tag-color: $reach-light-purple;
-$tag-background: $reach-dark-purple;
+$tag-background: #138496;
 $meta-color: $reach-white;
 $text-color: #111;
 $background-color: $reach-dark-grey;
 $post-color: orange;
 $brand-color: #2a7ae2;
-$about-line-left: $reach-dark-purple;
-$about-line-up: $reach-dark-purple;
+$about-line-left: #138496;
+$about-line-up: #138496;
 
-// Width of the content area
 $content-width: 1000px;
 
 $on-palm: 600px;
 $on-laptop: 1000px;
 
-// Using media queries with like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
     @content;
   }
 }
 
+body, html {
+  height: 100%;
+}
+
 .boxed-content {
-  @include hexRain;
-  background: #afafaf;
+  height: 100%;
   z-index: 10000;
   position: relative;
   width: 99.984%;
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+*::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.00);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(46, 164, 167, 0.53);
 }
 
 .landing-intro {
@@ -112,13 +118,10 @@ body {
   font-size: 16px;
   line-height: 1.5;
   font-weight: 300;
-  background: url('../images/stripe.png') fixed, linear-gradient($reach-dark-grey, $reach-dark-grey, $reach-burned-purple);
+  background: fixed, $reach-white;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
   display: block;
-  max-width: 1750px;
-  margin: auto;
-  padding: 40px 50px;
 }
 
 .page-content {
@@ -180,7 +183,6 @@ body {
 
 .click-linky {
   border-radius: 5px;
-
 }
 
 .click-linky:hover {
@@ -205,10 +207,8 @@ body {
   flex-grow: 1;
 }
 
-.card-footer {
+.the-footer {
   padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, 0.05);
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .footer-col {
@@ -325,7 +325,6 @@ body {
 }
 
 .blockquote {
-  background: #f9f9f9;
   border-left: 10px solid #ccc;
   margin: 1.5em 10px;
   padding: 0.5em 10px;

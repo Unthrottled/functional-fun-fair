@@ -17,19 +17,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var kendo_drawing_1 = require("@progress/kendo-drawing");
-var geometry_1 = require("@progress/kendo-drawing/geometry");
-var RanboShapeOptionsService_1 = require("./RanboShapeOptionsService");
 var BaseStreamItemService_1 = require("./BaseStreamItemService");
+var RanboShapeOptionsService_1 = require("./RanboShapeOptionsService");
 var CircleStreamItemService = /** @class */ (function (_super) {
     __extends(CircleStreamItemService, _super);
     function CircleStreamItemService() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     CircleStreamItemService.prototype.createShape = function (options) {
-        // Create the circle geometry and element
-        return new kendo_drawing_1.Circle(new geometry_1.Circle([25, 25], 20), (options && options()) ||
-            RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption());
+        var circleSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        circleSvg.setAttribute('viewbox', '0 0 100 100');
+        circleSvg.setAttribute('width', '50px');
+        circleSvg.setAttribute('height', '50px');
+        var shapeOptions = (options && options()) ||
+            RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption();
+        var circleElement = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circleElement.setAttribute('cx', '25');
+        circleElement.setAttribute('cy', '25');
+        circleElement.setAttribute('r', '20');
+        circleElement.setAttribute('fill', shapeOptions.fill.color);
+        circleElement.setAttribute('stroke', shapeOptions.stroke.color);
+        circleElement.setAttribute('stroke-width', shapeOptions.stroke.width.toString());
+        circleSvg.appendChild(circleElement);
+        return {
+            element: circleSvg,
+            options: shapeOptions,
+        };
     };
     CircleStreamItemService = __decorate([
         core_1.Injectable()

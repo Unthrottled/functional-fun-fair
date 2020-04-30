@@ -17,7 +17,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var kendo_drawing_1 = require("@progress/kendo-drawing");
 var RanboShapeOptionsService_1 = require("./RanboShapeOptionsService");
 var BaseStreamItemService_1 = require("./BaseStreamItemService");
 var TriangleStreamItemService = /** @class */ (function (_super) {
@@ -26,13 +25,22 @@ var TriangleStreamItemService = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     TriangleStreamItemService.prototype.createShape = function (options) {
-        // Create the circle geometry and element
-        var path = new kendo_drawing_1.Path((options && options()) || RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption());
-        path.moveTo(25, 0)
-            .lineTo(50, 50)
-            .lineTo(0, 50)
-            .close();
-        return path;
+        var triangleSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        triangleSvg.setAttribute('viewbox', '0 0 100 100');
+        triangleSvg.setAttribute('width', '50px');
+        triangleSvg.setAttribute('height', '50px');
+        var shapeOptions = (options && options()) ||
+            RanboShapeOptionsService_1.RanboShapeOptionsService.createStreamOption();
+        var triangeElement = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+        triangeElement.setAttribute('points', '25,0 50,50 0,50');
+        triangeElement.setAttribute('fill', shapeOptions.fill.color);
+        triangeElement.setAttribute('stroke', shapeOptions.stroke.color);
+        triangeElement.setAttribute('stroke-width', shapeOptions.stroke.width.toString());
+        triangleSvg.appendChild(triangeElement);
+        return {
+            element: triangleSvg,
+            options: shapeOptions,
+        };
     };
     TriangleStreamItemService = __decorate([
         core_1.Injectable()

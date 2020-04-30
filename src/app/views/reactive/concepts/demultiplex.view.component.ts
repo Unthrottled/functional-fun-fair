@@ -10,6 +10,7 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {RanboShapeOptionsService} from '../../../stream/RanboShapeOptionsService';
 import {ImageUtility} from '../../../utilities/ImageUtility';
 import {NavigationEnd, Router} from '@angular/router';
+import {StreamElement} from '../../../stream/Types';
 
 @Component({
     selector: 'demultiplex-view',
@@ -22,10 +23,10 @@ export class DemultiplexViewComponent implements OnInit {
     list: StreamItem;
     mapOne: Function<StreamItem, StreamItem> = {
         apply: (streamItem: StreamItem) => new SingleStreamItem(
-            streamItem.element.map((element: Element) => this.hip2B.createShape(() => {
+            streamItem.element.map((element: StreamElement) => this.hip2B.createShape(() => {
                     return {
-                        fill: element.options.get('fill'),
-                        stroke: element.options.get('stroke'),
+                        fill: element.options.fill,
+                        stroke: element.options.stroke,
                     }
                 })
             ))

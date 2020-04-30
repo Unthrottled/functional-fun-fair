@@ -14,6 +14,7 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {MultiStreamItem} from "../../../stream/MultiStreamItem";
 import {RanboShapeOptionsService} from "../../../stream/RanboShapeOptionsService";
 import {ImageUtility} from "../../../utilities/ImageUtility";
+import {StreamElement} from '../../../stream/Types';
 
 @Component({
     selector: 'flatmap-view',
@@ -26,11 +27,11 @@ export class Flatmap101Component implements OnInit {
     list: StreamItem;
     mapOne: Function<StreamItem, StreamItem> = {
         apply: (streamItem: StreamItem) => {
-            let element: Element = streamItem.element[0];
+            let element: StreamElement = streamItem.element[0];
             let elements = this.circleService.createStreamItems(4, () => {
                 return {
-                    fill: element.options.get('fill'),
-                    stroke: element.options.get('stroke'),
+                    fill: element.options.fill,
+                    stroke: element.options.stroke,
                 }
             }).element;
 

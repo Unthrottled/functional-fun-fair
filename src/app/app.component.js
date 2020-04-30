@@ -15,7 +15,7 @@ var router_1 = require("@angular/router");
 var AppComponent = /** @class */ (function () {
     function AppComponent(router) {
         this.router = router;
-        this.versionNumber = "v.1.1.0";
+        this.versionNumber = 'v.2.0.0';
     }
     AppComponent.prototype.ngOnInit = function () {
         this.router.events.subscribe(function (evt) {

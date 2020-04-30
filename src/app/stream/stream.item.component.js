@@ -20,12 +20,6 @@ var StreamItemComponent = /** @class */ (function () {
         this.allElementsAdded = false;
         this.numDrawn = 0;
     }
-    StreamItemComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.streamItem.element
-            .forEach(function (element) { return _this.elements.push(element); });
-        this.allElementsReceived();
-    };
     Object.defineProperty(StreamItemComponent.prototype, "streamItem", {
         get: function () {
             return this._streamItem;
@@ -50,6 +44,12 @@ var StreamItemComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    StreamItemComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.streamItem.element
+            .forEach(function (element) { return _this.elements.push(element); });
+        this.allElementsReceived();
+    };
     StreamItemComponent.prototype.itemDrawn = function () {
         this.numDrawn++;
         this.tryToComplete();
