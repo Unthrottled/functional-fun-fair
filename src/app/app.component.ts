@@ -7,7 +7,7 @@ import {NavigationEnd, Router} from '@angular/router';
     template: require('./app.component.htm')
 })
 export class AppComponent implements OnInit {
-    versionNumber: string = 'v.1.1.0';
+    versionNumber: string = 'v.2.0.0';
 
     constructor(private router: Router) {
     }
